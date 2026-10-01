@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit Urgence Domicile – Bioconnect × Spengler</title>
+</head>
+<body style="margin:0">
+
+<!-- =====================================================================
+     DÉBUT DU CODE À COLLER DANS SYSTEME.IO (bloc « Code HTML / Raw HTML »)
+     ---------------------------------------------------------------------
+     À PERSONNALISER (recherchez « A_REMPLACER ») :
+       - LIEN_COMMANDE  : URL de votre page de commande systeme.io
+       - PRIX           : prix de vente / prix barré
+       - IMG_xxx        : URL de vos images (Médiathèque systeme.io → copier le lien)
+     Tout le style est préfixé par .bcf pour ne pas casser l'éditeur systeme.io.
+     ===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+
+<style>
+.bcf{--or:#F26B1D;--or-d:#D9550B;--navy:#0B2341;--txt:#2B3240;--mut:#5E6675;--cream:#FFF4EC;--lav:#F2EFFA;--line:#ECE6E0;--white:#fff;--ok:#1E8E4E;--ok-bg:#E8F6EE;--warn:#B45A0A;--warn-bg:#FDF1E4;--bad:#C0322B;--bad-bg:#FBE8E7;
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--txt);background:var(--white);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+.bcf *,.bcf *::before,.bcf *::after{box-sizing:border-box}
+.bcf h1,.bcf h2,.bcf h3,.bcf p,.bcf ul{margin:0;padding:0}
+.bcf img{max-width:100%;display:block}
+.bcf a{color:inherit}
+.bcf .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.bcf .serif{font-family:'DM Serif Display',Georgia,serif;font-weight:400;color:var(--navy);letter-spacing:-.01em}
+.bcf .accent{color:var(--or)}
+.bcf .kicker{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:14px;display:block}
+.bcf .kicker.or{color:var(--or)}
+.bcf section{padding:72px 0}
+.bcf .h2{font-size:clamp(30px,4vw,44px);line-height:1.12}
+
+/* Boutons */
+.bcf .btn{display:inline-flex;align-items:center;gap:10px;background:var(--or);color:#fff;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:.03em;text-transform:uppercase;padding:16px 30px;border-radius:999px;box-shadow:0 10px 24px -10px rgba(242,107,29,.7);transition:transform .15s,background .15s}
+.bcf .btn:hover{background:var(--or-d);transform:translateY(-2px)}
+.bcf .btn svg{width:16px;height:16px}
+.bcf .btn.lg{font-size:17px;padding:20px 38px}
+
+/* Header */
+.bcf .hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bcf .hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+.bcf .logo{display:flex;align-items:center;gap:14px;font-weight:700;font-size:22px;color:var(--navy);text-decoration:none}
+.bcf .logo b{color:var(--or)}
+.bcf .logo .sep{width:1px;height:30px;background:#cfd3da}
+.bcf .logo .sp{font-weight:500;font-size:19px;display:flex;align-items:center;gap:6px}
+.bcf .nav{display:flex;gap:26px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.bcf .nav a{text-decoration:none;color:var(--navy)}
+.bcf .nav a:hover{color:var(--or)}
+.bcf .hdr .btn{padding:12px 22px;font-size:13px}
+
+/* Hero */
+.bcf .hero{background:linear-gradient(120deg,#fff 0%,#fff 45%,var(--cream) 100%);padding:64px 0 56px;position:relative;overflow:hidden}
+.bcf .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.bcf .hero h1{font-size:clamp(38px,5.4vw,62px);line-height:1.05;margin-bottom:22px}
+.bcf .hero .lead{font-size:19px;max-width:520px;margin-bottom:30px}
+.bcf .nums{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.bcf .num{width:96px;height:96px;border-radius:50%;background:#fff;box-shadow:0 8px 24px -12px rgba(11,35,65,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.bcf .num strong{color:var(--or);font-size:19px;line-height:1.1}
+.bcf .num span{font-size:11px;font-weight:600;color:var(--navy);line-height:1.2}
+.bcf .hero-visual{position:relative}
+.bcf .badge{position:absolute;top:-10px;right:0;width:150px;height:150px;border-radius:50%;background:#FBDCC4;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Caveat',cursive;font-size:21px;line-height:1.1;color:var(--navy);padding:16px;z-index:2;transform:rotate(-6deg)}
+.bcf .badge b{font-size:28px;display:block}
+
+/* Emplacements d'images */
+.bcf .ph{position:relative;background:linear-gradient(135deg,#F4F1EE,#E9E4DF);border-radius:18px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#9a9188;font-size:14px;text-align:center}
+.bcf .ph::before{content:attr(data-label);position:absolute;padding:16px}
+.bcf .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover}
+.bcf .ph.contain img{object-fit:contain}
+
+/* Bandeau avantages */
+.bcf .perks{background:var(--cream);padding:34px 0}
+.bcf .perks .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.bcf .perk{display:flex;gap:14px;padding:6px 22px;border-left:1px solid #EBD8C8}
+.bcf .perk:first-child{border-left:0;padding-left:0}
+.bcf .perk svg{flex:0 0 40px;height:40px;color:var(--or)}
+.bcf .perk h3{font-size:14px;font-weight:700;text-transform:uppercase;color:var(--navy);line-height:1.25;margin-bottom:4px}
+.bcf .perk p{font-size:13px;color:var(--mut);line-height:1.45}
+
+/* Histoire */
+.bcf .story .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.bcf .story .photo{position:relative}
+.bcf .story .photo::before{content:"";position:absolute;left:-24px;top:-24px;width:110px;height:110px;background:#DCD3F3;z-index:0}
+.bcf .story .ph{aspect-ratio:4/4.3;border-radius:4px;z-index:1}
+.bcf .story h2{margin-bottom:24px}
+.bcf .story p{margin-bottom:16px;color:var(--txt)}
+.bcf .quote{border-left:4px solid var(--or);background:var(--cream);padding:16px 20px;border-radius:0 12px 12px 0;font-style:italic;font-weight:500;color:var(--navy);margin:22px 0}
+.bcf .story .hl{color:var(--or);font-weight:600}
+.bcf .sign{display:flex;justify-content:flex-end;align-items:center;gap:18px;margin-top:22px}
+.bcf .sign .sig{font-family:'Caveat',cursive;font-size:34px;color:var(--navy)}
+.bcf .sign small{display:block;color:var(--mut);font-size:13px}
+.bcf .sign strong{color:var(--navy)}
+
+/* Contenu du kit */
+.bcf .kit{background:var(--lav)}
+.bcf .kit .title{text-align:center;margin-bottom:44px}
+.bcf .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.bcf .card{background:#fff;border-radius:18px;padding:22px;box-shadow:0 12px 30px -20px rgba(11,35,65,.35)}
+.bcf .card .ph{aspect-ratio:1/1;margin-bottom:18px;border-radius:12px}
+.bcf .card h3{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;text-transform:uppercase;color:var(--navy);margin-bottom:6px}
+.bcf .card h3 svg{width:26px;height:26px;color:var(--or);flex:0 0 26px}
+.bcf .card p{font-size:14px;color:var(--mut)}
+.bcf .card .model{display:inline-block;margin-top:10px;font-size:12px;font-weight:600;color:var(--or);background:var(--cream);padding:3px 10px;border-radius:999px}
+
+/* Repères */
+.bcf .ref .title{text-align:center;max-width:720px;margin:0 auto 44px}
+.bcf .ref .title p{margin-top:14px;color:var(--mut)}
+.bcf .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.bcf .rcard{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.bcf .rcard .top{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.bcf .rcard .top h3{font-size:17px;color:var(--navy)}
+.bcf .prio{font-size:11px;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:999px;background:var(--bad-bg);color:var(--bad);white-space:nowrap}
+.bcf .prio.p2{background:#FFF6D6;color:#8A6A00}
+.bcf .prio.p3{background:var(--ok-bg);color:var(--ok)}
+.bcf .lv{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;font-size:14px;gap:12px}
+.bcf .lv b{font-family:'DM Serif Display',serif;font-weight:400;font-size:18px}
+.bcf .lv.ok{background:var(--ok-bg);color:var(--ok)}
+.bcf .lv.wa{background:var(--warn-bg);color:var(--warn)}
+.bcf .lv.ba{background:var(--bad-bg);color:var(--bad)}
+.bcf .say{margin:16px 20px 20px;background:var(--navy);color:#fff;border-radius:12px;padding:14px 16px;font-size:13.5px;font-style:italic;flex:1}
+.bcf .say small{display:block;font-style:normal;letter-spacing:.14em;text-transform:uppercase;font-size:10px;opacity:.65;margin-bottom:6px}
+.bcf .say em{color:#FFA266;font-style:italic;font-weight:600}
+.bcf .note{font-size:12.5px;color:var(--mut);text-align:center;margin-top:22px}
+
+/* Guide */
+.bcf .guide{background:var(--cream)}
+.bcf .guide .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.bcf .guide .ph{aspect-ratio:4/3}
+.bcf .guide h2{font-size:28px;font-family:'Inter',sans-serif;font-weight:700;text-transform:uppercase;color:var(--navy);margin-bottom:12px;position:relative}
+.bcf .pdf{float:right;width:118px;height:118px;border-radius:50%;background:var(--or);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:700;font-size:13px;line-height:1.2;margin:0 0 14px 16px;box-shadow:0 12px 28px -12px rgba(242,107,29,.8)}
+.bcf .pdf small{font-weight:400;font-size:11px}
+.bcf .checks{list-style:none;margin:20px 0 0}
+.bcf .checks li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.bcf .checks li::before{content:"✓";flex:0 0 22px;height:22px;border-radius:50%;background:var(--or);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+
+/* Protocole */
+.bcf .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.bcf .step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;gap:16px}
+.bcf .step .n{font-family:'DM Serif Display',serif;font-size:30px;color:var(--or);line-height:1}
+.bcf .step h3{font-size:16px;color:var(--navy);margin-bottom:4px}
+.bcf .step p{font-size:14px;color:var(--mut)}
+
+/* Offre */
+.bcf .offer{background:var(--navy);color:#fff}
+.bcf .offer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.bcf .offer .serif{color:#fff}
+.bcf .offer .ph{aspect-ratio:1/1;background:linear-gradient(135deg,#17345C,#0F2B4F);color:#8aa0bf}
+.bcf .box{background:#fff;color:var(--txt);border-radius:22px;padding:34px;margin-top:26px}
+.bcf .box ul{list-style:none;margin-bottom:22px}
+.bcf .box li{padding:9px 0;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:12px;font-size:15px}
+.bcf .box li span:last-child{color:var(--ok);font-weight:600;white-space:nowrap}
+.bcf .price{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.bcf .price .now{font-family:'DM Serif Display',serif;font-size:52px;color:var(--navy);line-height:1}
+.bcf .price .old{text-decoration:line-through;color:var(--mut);font-size:20px}
+.bcf .box .btn{width:100%;justify-content:center;margin-top:18px}
+.bcf .trust{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;margin-top:16px;font-size:13px;color:var(--mut)}
+
+/* FAQ */
+.bcf .faq .wrap{max-width:820px}
+.bcf .faq .title{text-align:center;margin-bottom:36px}
+.bcf details{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;background:#fff}
+.bcf summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:600;color:var(--navy);display:flex;justify-content:space-between;gap:16px}
+.bcf summary::-webkit-details-marker{display:none}
+.bcf summary::after{content:"+";color:var(--or);font-size:22px;line-height:1;transition:transform .2s}
+.bcf details[open] summary::after{transform:rotate(45deg)}
+.bcf details p{padding:0 22px 20px;color:var(--mut)}
+
+/* CTA final */
+.bcf .final .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.bcf .final h2{font-size:clamp(32px,4.4vw,48px);line-height:1.1;margin-bottom:22px}
+.bcf .final p{margin-bottom:30px;font-size:17px}
+.bcf .final .ph{aspect-ratio:4/3.4}
+
+/* Footer */
+.bcf .ftr{background:#071A31;color:#B7C2D3;font-size:13px;padding:36px 0}
+.bcf .ftr .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+.bcf .ftr a{color:#B7C2D3;margin-right:16px}
+.bcf .disclaimer{background:#FFF8E6;border-top:1px solid #F3E2B5;color:#6B5310;font-size:13.5px;padding:18px 0;text-align:center}
+
+/* Barre mobile */
+.bcf .sticky{display:none}
+
+/* Responsive */
+@media (max-width:960px){
+  .bcf .nav{display:none}
+  .bcf .hero .wrap,.bcf .story .wrap,.bcf .guide .wrap,.bcf .offer .wrap,.bcf .final .wrap{grid-template-columns:1fr;gap:36px}
+  .bcf .grid4{grid-template-columns:repeat(2,1fr)}
+  .bcf .tabs,.bcf .steps{grid-template-columns:1fr}
+  .bcf .perks .wrap{grid-template-columns:repeat(2,1fr);gap:20px}
+  .bcf .perk{border-left:0;padding:0}
+  .bcf .story .photo{max-width:420px}
+}
+@media (max-width:600px){
+  .bcf section{padding:52px 0}
+  .bcf .wrap{padding:0 16px}
+  .bcf .hdr .btn{display:none}
+  .bcf .logo{font-size:18px}.bcf .logo .sp{font-size:16px}
+  .bcf .hero{padding:40px 0}
+  .bcf .hero .lead{font-size:17px}
+  .bcf .num{width:76px;height:76px}.bcf .num strong{font-size:16px}.bcf .num span{font-size:10px}
+  .bcf .badge{width:112px;height:112px;font-size:16px}.bcf .badge b{font-size:21px}
+  .bcf .grid4,.bcf .perks .wrap{grid-template-columns:1fr}
+  .bcf .btn.lg{width:100%;justify-content:center;padding:18px 20px}
+  .bcf .box{padding:24px}
+  .bcf .pdf{width:92px;height:92px;font-size:11px}
+  .bcf .sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px 16px;box-shadow:0 -8px 20px -12px rgba(0,0,0,.25)}
+  .bcf .sticky .btn{width:100%;justify-content:center;padding:14px}
+  .bcf .ftr{padding-bottom:90px}
+}
+</style>
+
+<div class="bcf">
+
+  <!-- ============ HEADER ============ -->
+  <header class="hdr">
+    <div class="wrap">
+      <a class="logo" href="#accueil">
+        <span><b>Bio</b>connect</span>
+        <span class="sep"></span>
+        <span class="sp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B2341" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 17s-4.5-2.6-4.5-5.6A2.4 2.4 0 0 1 12 10a2.4 2.4 0 0 1 4.5 1.4C16.5 14.4 12 17 12 17z" fill="#0B2341"/></svg>
+          Spengler
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="#accueil">Accueil</a>
+        <a href="#kit">Le kit</a>
+        <a href="#histoire">Notre histoire</a>
+        <a href="#questions">Vos questions</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn" href="#offre">Découvrir le kit</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="accueil">
+    <div class="wrap">
+      <div>
+        <span class="kicker">Kit urgence domicile</span>
+        <h1 class="serif">Et si une urgence survenait <span class="accent">chez vous&nbsp;?</span></h1>
+        <p class="lead">Prenez rapidement les signes vitaux essentiels et transmettez-les aux services de secours pour une prise en charge plus rapide et adaptée.</p>
+        <a class="btn lg" href="#offre">Découvrir le kit urgence
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m9 18 6-6-6-6"/></svg></a>
+        <div class="nums" aria-label="Numéros d'urgence">
+          <div class="num"><strong>15</strong><span>SAMU</span></div>
+          <div class="num"><strong>18</strong><span>Pompiers</span></div>
+          <div class="num"><strong>112</strong><span>Urgences UE</span></div>
+          <div class="num"><strong>116 117</strong><span>Médecin<br>de garde</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="badge"><span>Un kit <b>complet</b> pour plus de sérénité au quotidien</span></div>
+        <div class="ph contain" data-label="Photo du kit complet" style="aspect-ratio:1/0.9">
+          <!-- A_REMPLACER : image du kit complet (trousse + 3 appareils) -->
+          <img src="IMG_KIT_COMPLET" alt="Kit urgence Spengler : trousse, tensiomètre, oxymètre et thermomètre" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AVANTAGES ============ -->
+  <div class="perks">
+    <div class="wrap">
+      <div class="perk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+        <div><h3>Simple d'utilisation</h3><p>Des appareils intuitifs et fiables</p></div>
+      </div>
+      <div class="perk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6l-8-3z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+        <div><h3>Des mesures essentielles</h3><p>Tension, saturation, rythme cardiaque, température</p></div>
+      </div>
+      <div class="perk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 12 3l9 8"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg>
+        <div><h3>À la maison</h3><p>Comme en déplacement (voyages, personnes fragiles, enfants…)</p></div>
+      </div>
+      <div class="perk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M15.5 14.2c3.2-.4 6 1.5 6 4.8"/></svg>
+        <div><h3>Pour toute la famille</h3><p>Adultes, enfants et seniors</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ HISTOIRE ============ -->
+  <section class="story" id="histoire">
+    <div class="wrap">
+      <div class="photo">
+        <div class="ph" data-label="Photo du fondateur">
+          <!-- A_REMPLACER : portrait du dirigeant -->
+          <img src="IMG_FONDATEUR" alt="José Rodriguez, Directeur Général de Bioconnect" onerror="this.style.display='none'">
+        </div>
+      </div>
+      <div>
+        <span class="kicker">Notre histoire</span>
+        <h2 class="serif h2">Pourquoi avons-nous créé <span class="accent">ce kit&nbsp;?</span></h2>
+        <p>Une nuit, mon beau-père respirait très difficilement. Grâce à un oxymètre, j'ai constaté une saturation en oxygène anormalement basse et j'ai pu transmettre cette information au médecin régulateur, qui a immédiatement envoyé les pompiers avec de l'oxygène.</p>
+        <p class="quote">« Je suis convaincu que cette information a contribué à lui sauver la vie. »</p>
+        <p>Dans ces moments-là, chaque minute compte. Cette expérience nous a fait réaliser l'importance d'avoir un matériel simple et fiable à domicile pour pouvoir donner des informations précises aux urgentistes.</p>
+        <p class="hl">C'est de là qu'est née l'idée de proposer ce kit, en partenariat avec Spengler, une marque de référence en diagnostic médical.</p>
+        <div class="sign">
+          <span class="sig">J. Rodriguez</span>
+          <div><strong>José Rodriguez</strong><small>Directeur Général – Bioconnect</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTENU DU KIT ============ -->
+  <section class="kit" id="kit">
+    <div class="wrap">
+      <div class="title">
+        <span class="kicker">Un kit complet pour mesurer les signes vitaux essentiels</span>
+        <h2 class="serif h2">Tout ce qu'il faut, <span class="accent">au même endroit</span></h2>
+      </div>
+      <div class="grid4">
+        <div class="card">
+          <div class="ph contain" data-label="Photo tensiomètre"><img src="IMG_TENSIOMETRE" alt="Tensiomètre électronique Spengler" onerror="this.style.display='none'"></div>
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 8.6a5 5 0 0 0-8.8-3.2 5 5 0 0 0-8.8 3.2C3.2 14 12 20 12 20s8.8-6 8.8-11.4z"/><path d="M3.5 12h4l1.5-3 3 6 1.5-3h7"/></svg>Tension artérielle</h3>
+          <p>Pour surveiller la pression artérielle (systolique, diastolique) et le pouls.</p>
+          <span class="model">AutoTensio®</span>
+        </div>
+        <div class="card">
+          <div class="ph contain" data-label="Photo oxymètre"><img src="IMG_OXYMETRE" alt="Oxymètre de pouls Spengler" onerror="this.style.display='none'"></div>
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 4v8"/><path d="M12 12c-1.5 0-3-2-5-2-2.5 0-4 3-4 6 0 2.2 1.3 4 3.2 4C9 20 12 17 12 12z"/><path d="M12 12c1.5 0 3-2 5-2 2.5 0 4 3 4 6 0 2.2-1.3 4-3.2 4C15 20 12 17 12 12z"/></svg>Saturation en oxygène</h3>
+          <p>Pour connaître le taux d'oxygène dans le sang (SpO₂) et le rythme cardiaque.</p>
+          <span class="model">OxyStart®</span>
+        </div>
+        <div class="card">
+          <div class="ph contain" data-label="Photo thermomètre"><img src="IMG_THERMOMETRE" alt="Thermomètre infrarouge Spengler" onerror="this.style.display='none'"></div>
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z"/><path d="M12 9v8"/></svg>Température</h3>
+          <p>Pour détecter une fièvre rapidement et facilement, sans contact.</p>
+          <span class="model">Tempo Easy</span>
+        </div>
+        <div class="card">
+          <div class="ph contain" data-label="Photo trousse"><img src="IMG_TROUSSE" alt="Trousse de transport Spengler" onerror="this.style.display='none'"></div>
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><path d="M3 12h18"/></svg>Trousse de transport</h3>
+          <p>Pour garder tout votre matériel rangé et à portée de main.</p>
+          <span class="model">Inclus</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REPÈRES (extrait du guide) ============ -->
+  <section class="ref">
+    <div class="wrap">
+      <div class="title">
+        <span class="kicker or">Extrait du guide inclus</span>
+        <h2 class="serif h2">Savoir lire les chiffres… <span class="accent">et quoi dire au 15</span></h2>
+        <p>Pour chaque mesure, le guide vous donne des repères simples et la phrase exacte à transmettre au médecin régulateur.</p>
+      </div>
+      <div class="tabs">
+        <div class="rcard">
+          <div class="top"><h3>Saturation (SpO₂)</h3><span class="prio">PRIORITÉ 1</span></div>
+          <div class="lv ok"><span>Normal</span><b>95 – 100 %</b></div>
+          <div class="lv wa"><span>Attention</span><b>90 – 94 %</b></div>
+          <div class="lv ba"><span>Urgence → 15</span><b>&lt; 90 %</b></div>
+          <div class="say"><small>Ce que vous dites au régulateur</small>« L'oxymètre indique une saturation en oxygène de <em>[chiffre] %</em>. La fréquence cardiaque affichée est de <em>[chiffre] battements par minute</em>. »</div>
+        </div>
+        <div class="rcard">
+          <div class="top"><h3>Tension artérielle</h3><span class="prio p2">PRIORITÉ 2</span></div>
+          <div class="lv ok"><span>Normal</span><b>90–140 / 60–90</b></div>
+          <div class="lv wa"><span>Élevée</span><b>&gt; 140 / 90</b></div>
+          <div class="lv ba"><span>Urgence → 15</span><b>&gt; 180/110 ou &lt; 80/50</b></div>
+          <div class="say"><small>Ce que vous dites au régulateur</small>« La tension prise avec le tensiomètre est de <em>[SYS] sur [DIA] mmHg</em>. Le pouls affiché est de <em>[chiffre] par minute</em>. »</div>
+        </div>
+        <div class="rcard">
+          <div class="top"><h3>Température</h3><span class="prio p3">PRIORITÉ 3</span></div>
+          <div class="lv ok"><span>Normal</span><b>36,1 – 37,2 °C</b></div>
+          <div class="lv wa"><span>Fièvre</span><b>37,5 – 39,9 °C</b></div>
+          <div class="lv ba"><span>Urgence → 15</span><b>≥ 40 °C ou &lt; 35 °C</b></div>
+          <div class="say"><small>Ce que vous dites au régulateur</small>« La température prise <em>[frontalement / dans l'oreille]</em> est de <em>[chiffre] °C</em>. La fièvre dure depuis <em>[durée]</em>. »</div>
+        </div>
+      </div>
+      <p class="note">Repères indicatifs issus du guide. Ils ne remplacent pas un avis médical : en cas de doute, appelez le 15.</p>
+    </div>
+  </section>
+
+  <!-- ============ GUIDE INCLUS ============ -->
+  <section class="guide">
+    <div class="wrap">
+      <div class="ph contain" data-label="Visuel du guide PDF">
+        <!-- A_REMPLACER : mockup du guide ouvert -->
+        <img src="IMG_GUIDE" alt="Guide pratique des mesures médicales d'urgence" onerror="this.style.display='none'">
+      </div>
+      <div>
+        <div class="pdf"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>GUIDE INCLUS<small>au format PDF</small></div>
+        <h2>Un guide pratique inclus</h2>
+        <p>Pour vous accompagner pas à pas, un guide clair et illustré est offert avec votre kit&nbsp;:</p>
+        <ul class="checks">
+          <li>Comment utiliser chaque appareil (écrans annotés)</li>
+          <li>Comprendre les résultats : normal, attention, urgence</li>
+          <li>Les bons réflexes en cas d'urgence</li>
+          <li>Le protocole d'appel aux secours en 6 étapes</li>
+          <li>Les numéros à contacter (15, 18, 112, 116 117)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROTOCOLE D'APPEL ============ -->
+  <section>
+    <div class="wrap">
+      <div style="text-align:center;max-width:720px;margin:0 auto">
+        <span class="kicker or">Protocole d'appel aux secours</span>
+        <h2 class="serif h2">Les 6 étapes d'un <span class="accent">appel efficace</span></h2>
+        <p style="margin-top:14px;color:var(--mut)">Donnez ces informations dans cet ordre pour aider le régulateur à prendre la bonne décision.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><div><h3>Votre identité</h3><p>Votre nom et votre numéro de téléphone.</p></div></div>
+        <div class="step"><span class="n">02</span><div><h3>L'adresse exacte</h3><p>Numéro, rue, code postal, étage et code d'entrée.</p></div></div>
+        <div class="step"><span class="n">03</span><div><h3>Le problème</h3><p>La situation en une phrase : douleur, chute, difficulté à respirer…</p></div></div>
+        <div class="step"><span class="n">04</span><div><h3>Les mesures</h3><p>La SpO₂, la tension et la température mesurées avec votre kit.</p></div></div>
+        <div class="step"><span class="n">05</span><div><h3>Les antécédents</h3><p>Maladies connues, traitements en cours et allergies.</p></div></div>
+        <div class="step"><span class="n">06</span><div><h3>Ne raccrochez pas</h3><p>Restez en ligne : le régulateur vous guide jusqu'à l'arrivée des secours.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFFRE ============ -->
+  <section class="offer" id="offre">
+    <div class="wrap">
+      <div class="ph contain" data-label="Photo du kit (packshot)">
+        <img src="IMG_KIT_COMPLET" alt="Kit urgence domicile Bioconnect × Spengler" onerror="this.style.display='none'">
+      </div>
+      <div>
+        <span class="kicker" style="color:#FFA266">Kit urgence domicile</span>
+        <h2 class="serif h2">Soyez prêt le jour où <span style="color:#FFA266">chaque minute compte</span></h2>
+        <div class="box">
+          <ul>
+            <li><span>Tensiomètre électronique AutoTensio®</span><span>Inclus</span></li>
+            <li><span>Oxymètre de pouls OxyStart®</span><span>Inclus</span></li>
+            <li><span>Thermomètre infrarouge Tempo Easy</span><span>Inclus</span></li>
+            <li><span>Trousse de transport Spengler</span><span>Incluse</span></li>
+            <li><span>Guide pratique des mesures d'urgence (PDF)</span><span>Offert</span></li>
+          </ul>
+          <!-- A_REMPLACER : vos prix -->
+          <div class="price"><span class="now">XX,XX €</span><span class="old">XX,XX €</span></div>
+          <small style="color:var(--mut)">TTC – livraison à domicile</small>
+          <!-- A_REMPLACER : lien vers votre page de commande systeme.io -->
+          <a class="btn lg" href="LIEN_COMMANDE">Je commande mon kit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m9 18 6-6-6-6"/></svg></a>
+          <div class="trust"><span>🔒 Paiement sécurisé</span><span>📦 Livraison suivie</span><span>💬 Service client réactif</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq" id="questions">
+    <div class="wrap">
+      <div class="title">
+        <span class="kicker or">Vos questions</span>
+        <h2 class="serif h2">Questions fréquentes</h2>
+      </div>
+      <details><summary>Faut-il des connaissances médicales pour utiliser le kit&nbsp;?</summary><p>Non. Les appareils sont conçus pour un usage à domicile et le guide inclus explique chaque écran, chaque bouton et comment interpréter les résultats avec des repères simples (normal / attention / urgence).</p></details>
+      <details><summary>Le kit remplace-t-il un médecin ou un appel aux secours&nbsp;?</summary><p>Non. Le kit et le guide ne remplacent ni un avis médical ni l'intervention des professionnels de santé. Ils vous aident à transmettre des informations précises aux secours. En cas d'urgence vitale ou de doute sérieux, appelez le 15 ou le 112.</p></details>
+      <details><summary>Le kit convient-il aux enfants&nbsp;?</summary><p>Oui, le kit s'adresse à toute la famille. Pour la saturation chez l'enfant, le guide recommande d'utiliser une sonde pédiatrique adaptée à la taille des doigts.</p></details>
+      <details><summary>Comment obtenir une mesure fiable&nbsp;?</summary><p>Le guide détaille les bonnes pratiques : doigt propre et chaud pour l'oxymètre (attendre 30 secondes), personne assise 5 minutes au calme avant la prise de tension (2 mesures à 2 minutes d'intervalle), thermomètre frontal à 3 cm du milieu du front.</p></details>
+      <details><summary>Puis-je l'emporter en déplacement&nbsp;?</summary><p>Oui. La trousse de transport permet de garder tout le matériel réuni, en voyage comme chez un proche fragile.</p></details>
+      <details><summary>Comment recevoir le guide PDF&nbsp;?</summary><p>Le guide vous est envoyé par e-mail après votre commande. <!-- A_REMPLACER : adaptez selon votre mode de livraison du guide --></p></details>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINAL ============ -->
+  <section class="final" style="background:var(--cream)">
+    <div class="wrap">
+      <div>
+        <span class="kicker">Je suis là pour vous aider</span>
+        <h2 class="serif">Pour toutes les familles qui souhaitent être <span class="accent">mieux préparées</span></h2>
+        <p>À la maison comme en déplacement, ce kit vous permet de réagir plus sereinement et d'avoir les informations essentielles à transmettre aux secours.</p>
+        <a class="btn lg" href="#offre">Découvrir le kit urgence
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m9 18 6-6-6-6"/></svg></a>
+      </div>
+      <div class="ph" data-label="Photo famille / lifestyle">
+        <!-- A_REMPLACER : photo famille utilisant le kit -->
+        <img src="IMG_FAMILLE" alt="Famille sereine à la maison" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AVERTISSEMENT + FOOTER ============ -->
+  <div class="disclaimer"><div class="wrap">⚠️ Ce kit et son guide ne remplacent pas un avis médical. En cas d'urgence vitale ou de doute sérieux, appelez le <strong>15</strong> ou le <strong>112</strong>.</div></div>
+  <footer class="ftr" id="contact">
+    <div class="wrap">
+      <div>© Bioconnect – Solutions biomédicales × Spengler</div>
+      <div>
+        <!-- A_REMPLACER : vos pages légales systeme.io -->
+        <a href="#">Mentions légales</a><a href="#">CGV</a><a href="#">Confidentialité</a><a href="mailto:contact@exemple.fr">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bouton fixe sur mobile -->
+  <div class="sticky"><a class="btn" href="#offre">Découvrir le kit urgence</a></div>
+</div>
+
+<!-- ======================= FIN DU CODE À COLLER ======================= -->
+</body>
+</html>
