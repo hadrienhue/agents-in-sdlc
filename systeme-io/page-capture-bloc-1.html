@@ -1,0 +1,105 @@
+<!-- =====================================================================
+     PAGE DE CAPTURE – BLOC 1 / 2  (au-dessus du formulaire systeme.io)
+     ---------------------------------------------------------------------
+     ORDRE DES ÉLÉMENTS DANS L'ÉDITEUR SYSTEME.IO :
+       1. Raw HTML  ← CE BLOC (en-tête + promesse)
+       2. Formulaire systeme.io (élément natif : Prénom + E-mail + bouton)
+       3. Raw HTML  ← BLOC 2 (contenu du guide, histoire, rappel)
+     Sections en « Pleine largeur », padding 0. Le Raw HTML n'apparaît pas
+     dans l'aperçu : vérifiez sur la page publiée.
+     À PERSONNALISER : recherchez « A_REMPLACER ».
+     ===================================================================== -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Caveat:wght@600&display=swap');
+.bcf{width:100%;text-align:left;--or:#F26B1D;--or-d:#D9550B;--navy:#0B2341;--txt:#2B3240;--mut:#5E6675;--cream:#FFF4EC;--lav:#F2EFFA;--line:#ECE6E0;--ok:#1E8E4E;--ok-bg:#E8F6EE;--warn:#B45A0A;--warn-bg:#FDF1E4;--bad:#C0322B;--bad-bg:#FBE8E7;
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--txt);background:#fff;line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+.bcf *,.bcf *::before,.bcf *::after{box-sizing:border-box}
+.bcf h1,.bcf h2,.bcf h3,.bcf p,.bcf ul,.bcf li{margin:0;padding:0;text-align:inherit;text-transform:none;font-style:normal;letter-spacing:normal;line-height:inherit}
+.bcf p,.bcf li{font-size:inherit;color:inherit;font-family:inherit}
+.bcf img{max-width:100%;display:block}
+.bcf a{color:inherit}
+.bcf a.btn,.bcf a.btn:hover{color:#fff;text-decoration:none}
+.bcf .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.bcf .serif{font-family:'DM Serif Display',Georgia,serif;font-weight:400;color:var(--navy);letter-spacing:-.01em}
+.bcf .accent{color:var(--or)}
+.bcf .kicker{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--or);margin-bottom:14px;display:block}
+.bcf .sec{padding:64px 0}
+.bcf .h2{font-size:clamp(28px,4vw,40px);line-height:1.15}
+.bcf .center{text-align:center;max-width:720px;margin:0 auto}
+.bcf .center p{margin-top:12px;color:var(--mut)}
+.bcf .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--or);color:#fff;font-weight:700;font-size:16px;letter-spacing:.03em;text-transform:uppercase;padding:18px 34px;border-radius:999px;box-shadow:0 10px 24px -10px rgba(242,107,29,.7);transition:transform .15s,background .15s}
+.bcf .btn:hover{background:var(--or-d);transform:translateY(-2px)}
+.bcf .btn svg{width:16px;height:16px}
+.bcf .ph{position:relative;background:linear-gradient(135deg,#F4F1EE,#E9E4DF);border-radius:18px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#9a9188;font-size:14px;text-align:center}
+.bcf .ph::before{content:attr(data-label);position:absolute;padding:16px}
+.bcf .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain}
+.bcf .checks{list-style:none}
+.bcf .checks li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.bcf .checks li::before{content:"✓";flex:0 0 22px;height:22px;border-radius:50%;background:var(--or);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+@media (max-width:600px){.bcf .sec{padding:48px 0}.bcf .wrap{padding:0 16px}.bcf .btn{width:100%;padding:17px 18px;font-size:15px}}
+</style>
+<style>
+.bcf .top{border-bottom:1px solid var(--line);background:#fff}
+.bcf .top .wrap{display:flex;align-items:center;justify-content:center;height:68px}
+.bcf .logo{display:flex;align-items:center;gap:14px;font-weight:700;font-size:21px;color:var(--navy)}
+.bcf .logo b{color:var(--or)}
+.bcf .logo .sep{width:1px;height:28px;background:#cfd3da}
+.bcf .logo .sp{font-weight:500;font-size:18px;display:flex;align-items:center;gap:6px}
+.bcf .hero{background:linear-gradient(120deg,#fff 0%,#fff 40%,var(--cream) 100%);padding:56px 0 40px}
+.bcf .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.bcf .pill{display:inline-block;background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:18px}
+.bcf .pill span{color:#FFA266}
+.bcf .hero h1{font-size:clamp(34px,5vw,54px);line-height:1.07;margin-bottom:18px}
+.bcf .hero .lead{font-size:18px;margin-bottom:24px;max-width:540px}
+.bcf .hero .checks li{font-weight:500;color:var(--navy)}
+.bcf .visual{position:relative}
+.bcf .visual .ph{aspect-ratio:4/3.4;background:linear-gradient(135deg,#fff,#F3EEE9);box-shadow:0 24px 50px -30px rgba(11,35,65,.45)}
+.bcf .free{position:absolute;top:-16px;right:-6px;z-index:2;width:118px;height:118px;border-radius:50%;background:var(--or);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:19px;line-height:1.1;transform:rotate(8deg);box-shadow:0 12px 28px -12px rgba(242,107,29,.8)}
+.bcf .free small{font-weight:500;font-size:12px}
+.bcf .proof{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-size:13.5px;color:var(--mut)}
+.bcf .proof b{color:var(--navy)}
+.bcf .formhead{background:var(--navy);color:#fff;text-align:center;padding:26px 20px 30px;scroll-margin-top:10px}
+.bcf .formhead h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(24px,3.4vw,32px);color:#fff;line-height:1.2}
+.bcf .formhead p{color:#C9D3E3;margin-top:6px;font-size:15px}
+.bcf .formhead .down{display:block;margin:12px auto 0;width:34px;height:34px;color:#FFA266;animation:bcfb 1.6s infinite}
+@keyframes bcfb{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@media (max-width:900px){.bcf .hero .wrap{grid-template-columns:1fr;gap:26px}.bcf .visual{order:-1;max-width:300px;margin:0 auto;width:100%}.bcf .visual .ph{aspect-ratio:4/3}}
+@media (max-width:600px){.bcf .hero{padding:36px 0 30px}.bcf .hero .lead{font-size:16.5px}.bcf .free{width:92px;height:92px;font-size:15px;right:0}.bcf .logo{font-size:18px}.bcf .logo .sp{font-size:16px}}
+</style>
+
+<div class="bcf">
+  <div class="top"><div class="wrap">
+    <div class="logo">
+      <span><b>Bio</b>connect</span><span class="sep"></span>
+      <span class="sp"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B2341" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 17s-4.5-2.6-4.5-5.6A2.4 2.4 0 0 1 12 10a2.4 2.4 0 0 1 4.5 1.4C16.5 14.4 12 17 12 17z" fill="#0B2341"/></svg>Spengler</span>
+    </div>
+  </div></div>
+
+  <div class="hero"><div class="wrap">
+    <div>
+      <span class="pill">Guide PDF <span>100 % gratuit</span></span>
+      <h1 class="serif">Urgence à domicile : sauriez-vous <span class="accent">quoi dire au 15&nbsp;?</span></h1>
+      <p class="lead">Recevez gratuitement le <strong>Guide des mesures médicales d'urgence</strong> : les bons gestes pour mesurer les signes vitaux d'un proche et transmettre des informations précises aux secours.</p>
+      <ul class="checks">
+        <li>Les repères normal / attention / urgence pour la saturation, la tension et la température</li>
+        <li>La phrase exacte à dire au médecin régulateur pour chaque mesure</li>
+        <li>Le protocole d'appel aux secours en 6 étapes</li>
+        <li>Les 4 numéros d'urgence à connaître : 15, 18, 112, 116 117</li>
+      </ul>
+      <div class="proof"><span>📄 Guide <b>illustré</b></span><span>📩 Envoyé <b>par e-mail</b></span><span>✅ <b>100 %</b> gratuit</span></div>
+    </div>
+    <div class="visual">
+      <div class="free">OFFERT<small>format PDF</small></div>
+      <div class="ph" data-label="Visuel du guide PDF">
+        <!-- A_REMPLACER : mockup / couverture du guide -->
+        <img src="IMG_GUIDE" alt="Guide des mesures médicales d'urgence – Bioconnect × Spengler" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </div></div>
+
+  <div class="formhead" id="formulaire">
+    <h2>Où souhaitez-vous recevoir votre guide&nbsp;?</h2>
+    <p>Indiquez votre prénom et votre e-mail ci-dessous.</p>
+    <svg class="down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v15"/><path d="m6 13 6 6 6-6"/></svg>
+  </div>
+</div>
