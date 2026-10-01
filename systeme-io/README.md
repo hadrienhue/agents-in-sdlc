@@ -1,0 +1,42 @@
+# Tunnel systeme.io – BioConnect × Spengler
+
+Tunnel en 3 pages : **capture → merci → vente**. Chaque fichier `.html` se colle tel quel dans un élément **Code HTML** (Raw HTML) de systeme.io.
+
+| Page systeme.io | Contenu de la page (dans l'ordre) |
+|---|---|
+| 1. Capture | `1-capture-bloc-A.html` → **formulaire natif systeme.io** → `1-capture-bloc-B.html` |
+| 2. Merci | `2-merci.html` |
+| 3. Vente | `3-vente.html` (le bouton mène à votre page de commande systeme.io) |
+
+## Réglages dans systeme.io
+
+1. Pour chaque section : **pleine largeur**, marges intérieures (padding) à 0.
+2. Formulaire de la page 1 : champs Prénom et E-mail, case de consentement, bouton « JE REÇOIS LE GUIDE » (couleur `#F26B1D`, arrondi max), section en fond `#0B2341`. Après l'envoi, il redirige vers la page 2.
+3. E-mail automatique (règle d'automatisation) : il envoie le lien du guide (`LIEN_DRIVE_PDF`).
+4. Le bloc Code HTML **n'apparaît pas dans l'aperçu** de l'éditeur : vérifiez le rendu sur la page publiée.
+
+## À remplacer (recherchez `A_REMPLACER` dans chaque fichier)
+
+| Code | À mettre à la place |
+|---|---|
+| `LIEN_DRIVE_PDF` | Lien de partage Google Drive du guide (accès « Tous les utilisateurs disposant du lien ») |
+| `LIEN_PAGE_3` | URL de la page 3 (vente) |
+| `LIEN_COMMANDE` | URL de la page de commande systeme.io |
+| `XX,XX €` | Prix (et prix barré, ou supprimez-le) |
+| `CONTACT_EMAIL`, `EXPEDITEUR_EMAIL` | E-mail de contact, adresse d'expédition des e-mails |
+| `LIEN_FACEBOOK`, `LIEN_INSTAGRAM`, `LIEN_LINKEDIN` | Réseaux sociaux (supprimez la ligne si inutile) |
+| `LIEN_MENTIONS_LEGALES`, `LIEN_CONFIDENTIALITE`, `LIEN_CGV` | Pages légales |
+| `IMG_GUIDE`, `IMG_KIT_COMPLET`, `IMG_FONDATEUR`, `IMG_TENSIOMETRE`, `IMG_OXYMETRE`, `IMG_THERMOMETRE`, `IMG_TROUSSE`, `IMG_FAMILLE` | URL des photos (médiathèque systeme.io → copier le lien). Pas de base64 pour les photos : la page deviendrait trop lourde. |
+
+## Design system (commun aux 4 blocs)
+
+- Tout le style est préfixé par `.bcf` : il ne déborde ni sur l'éditeur ni sur le thème.
+- Variables CSS sur `.bcf` : `--or #F26B1D`, `--navy #0B2341`, `--red #E8452F`, `--cream`, `--line`, etc.
+- Logo BioConnect en **SVG base64** (léger, environ 1 Ko). Il ne demande aucun téléversement.
+- Responsive : **container queries à 700 px** sur `.bcf`. La mise en page s'adapte à la largeur du bloc, pas seulement à celle de l'écran.
+- Compatibilité systeme.io : aucune balise `<!DOCTYPE>`, `<html>`, `<head>` ou `<body>`, polices chargées par `@import`, z-index ≤ 19.
+- Barre « Commander » fixe sur mobile (page 3) : elle est placée **hors** de `.bcf`, parce que `container-type` empêcherait `position:fixed` de fonctionner.
+
+## Modifier
+
+Les blocs sont générés par `build_funnel.py`. Modifiez ce script, puis lancez `python3 build_funnel.py` : les 4 fichiers sont régénérés, et des aperçus sont créés dans `_apercu/` (non versionné).
