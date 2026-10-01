@@ -7,7 +7,7 @@
      ===================================================================== -->
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
-.bcf{--or:#F26B1D;--or-d:#D9550B;--or-l:#FFA266;--red:#E8452F;--navy:#0B2341;--navy-2:#071A31;--txt:#2B3240;--mut:#5E6675;--cream:#FFF4EC;--lav:#F2EFFA;--line:#ECE6E0;
+.bcf{--or:#F26B1D;--or-d:#D9550B;--or-l:#FFA266;--noir:#111111;--noir-2:#000000;--txt:#2B2B2B;--mut:#5F5F5F;--cream:#FFF4EC;--gris:#F4F4F4;--line:#ECE6E0;
   --ok:#1E8E4E;--ok-bg:#E8F6EE;--warn:#B45A0A;--warn-bg:#FDF1E4;--bad:#C0322B;--bad-bg:#FBE8E7;--r:18px;
   --f-serif:'DM Serif Display',Georgia,serif;--f-sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
   container-type:inline-size;container-name:bcf;width:100%;text-align:left;
@@ -20,7 +20,7 @@
 .bcf a.btn,.bcf a.btn:hover{color:#fff;text-decoration:none}
 .bcf .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
 .bcf .sec{padding:68px 0}
-.bcf .serif{font-family:var(--f-serif);font-weight:400;color:var(--navy);letter-spacing:-.01em}
+.bcf .serif{font-family:var(--f-serif);font-weight:400;color:var(--noir);letter-spacing:-.01em}
 .bcf .h1{font-size:52px;line-height:1.08}
 .bcf .h2{font-size:38px;line-height:1.15}
 .bcf .accent{color:var(--or)}
@@ -28,7 +28,7 @@
 .bcf .center{text-align:center;max-width:720px;margin:0 auto}
 .bcf .center .sub{margin-top:12px;color:var(--mut)}
 .bcf .muted{color:var(--mut)}
-.bcf .bg-cream{background:var(--cream)}.bcf .bg-lav{background:var(--lav)}.bcf .bg-navy{background:var(--navy);color:#C9D3E3}
+.bcf .bg-cream{background:var(--cream)}.bcf .bg-gris{background:var(--gris)}.bcf .bg-noir{background:var(--noir);color:#D6D6D6}
 .bcf .grid2{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
 .bcf .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .bcf .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -36,7 +36,7 @@
 .bcf .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--or);color:#fff;font-weight:700;font-size:16px;letter-spacing:.03em;text-transform:uppercase;padding:18px 34px;border-radius:999px;border:0;cursor:pointer;box-shadow:0 10px 24px -10px rgba(242,107,29,.7);transition:transform .15s,background .15s}
 .bcf .btn:hover{background:var(--or-d);transform:translateY(-2px)}
 .bcf .btn svg{width:16px;height:16px}
-.bcf .btn.ghost{background:transparent;color:var(--navy)!important;border:2px solid var(--navy);box-shadow:none}
+.bcf .btn.ghost{background:transparent;color:var(--noir)!important;border:2px solid var(--noir);box-shadow:none}
 /* liste à coches */
 .bcf .checks{list-style:none}
 .bcf .checks li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
@@ -44,23 +44,24 @@
 /* emplacement image */
 .bcf .ph{position:relative;background:linear-gradient(135deg,#F4F1EE,#E9E4DF);border-radius:var(--r);overflow:hidden;display:flex;align-items:center;justify-content:center;color:#9a9188;font-size:14px;text-align:center}
 .bcf .ph::before{content:attr(data-label);position:absolute;padding:16px}
+.bcf .ph:has(img:not([style*="none"]))::before{display:none}
 .bcf .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain}
 .bcf .ph.cover img{object-fit:cover}
 /* carte */
 .bcf .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px}
-.bcf .card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.bcf .card h3{font-size:16px;font-weight:700;color:var(--noir);margin-bottom:6px}
 .bcf .card p{font-size:14.5px;color:var(--mut)}
 /* en-tête (couverture du guide) */
-.bcf .hdr{background:var(--navy);background-image:radial-gradient(circle at 92% -40%,rgba(255,255,255,.08) 0 160px,transparent 161px)}
+.bcf .hdr{background:var(--noir);background-image:radial-gradient(circle at 92% -40%,rgba(255,255,255,.08) 0 160px,transparent 161px)}
 .bcf .hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px}
 .bcf .brand{display:flex;align-items:center;gap:20px}
 .bcf .bc-logo{height:38px;width:auto}
 .bcf .bc-x{color:#fff;font-weight:700;font-size:17px;white-space:nowrap}
-.bcf .pill{background:var(--red);color:#fff!important;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:11px 22px;border-radius:999px;white-space:nowrap;text-decoration:none}
-.bcf .subhdr{background:var(--navy);border-top:1px solid rgba(255,255,255,.08);color:#C9D3E3;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;text-align:center;padding:9px 16px}
+.bcf .pill{background:var(--or);color:#fff!important;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:11px 22px;border-radius:999px;white-space:nowrap;text-decoration:none}
+.bcf .subhdr{background:var(--noir);border-top:1px solid rgba(255,255,255,.08);color:#D6D6D6;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;text-align:center;padding:9px 16px}
 .bcf .subhdr span{display:inline-block;border-bottom:2px solid var(--or);padding-bottom:3px}
 /* pied de page (pages intérieures du guide) */
-.bcf .foot{background:var(--navy);color:#C9D3E3;padding:52px 0 26px;background-image:radial-gradient(circle at 0% 110%,rgba(232,69,47,.3) 0 170px,transparent 171px)}
+.bcf .foot{background:var(--noir);color:#D6D6D6;padding:52px 0 26px;background-image:radial-gradient(circle at 0% 110%,rgba(242,107,29,.3) 0 170px,transparent 171px)}
 .bcf .foot .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
 .bcf .foot .ref{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#fff;margin-top:14px}
 .bcf .foot .ref::after{content:"";display:block;width:56px;height:3px;background:var(--or);margin-top:8px}
@@ -68,35 +69,35 @@
 .bcf .fnum{display:flex;flex-direction:column;align-items:center;gap:6px;color:#fff;font-size:12.5px;text-align:center;min-width:76px}
 .bcf .fnum i{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-style:normal}
 .bcf .fnum i svg{width:22px;height:22px}
-.bcf .fnum b{background:var(--red);color:#fff;border-radius:999px;padding:2px 12px;font-size:15px;white-space:nowrap}
-.bcf .retenir{background:#fff;color:var(--navy);border-radius:16px;padding:18px 22px;margin:34px 0 26px;font-size:14px}
+.bcf .fnum b{background:var(--or);color:#fff;border-radius:999px;padding:2px 12px;font-size:15px;white-space:nowrap}
+.bcf .retenir{background:#fff;color:var(--noir);border-radius:16px;padding:18px 22px;margin:34px 0 26px;font-size:14px}
 .bcf .retenir strong{display:block;font-size:13px;letter-spacing:.06em;margin-bottom:4px}
 .bcf .fcontact{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;margin-bottom:20px;font-size:14px}
 .bcf .fcontact a{color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
 .bcf .fcontact svg{width:18px;height:18px}
 .bcf .edit{border-top:1px solid rgba(255,255,255,.18);padding-top:20px;text-align:center;font-size:13px;line-height:1.7}
-.bcf .edit a{color:#C9D3E3;margin:0 8px}
+.bcf .edit a{color:#D6D6D6;margin:0 8px}
 .bcf .edit .legal{margin-top:10px;font-size:12px;opacity:.85}
 /* ---------- container query : bloc ≤ 700 px ---------- */
-@container bcf (max-width:700px){.bcf .wrap{padding:0 16px}.bcf .sec{padding:48px 0}.bcf .h1{font-size:34px}.bcf .h2{font-size:28px}.bcf .grid2{grid-template-columns:1fr;gap:30px}.bcf .grid3,.bcf .grid4{grid-template-columns:1fr}.bcf .btn{width:100%;padding:17px 18px;font-size:15px}.bcf .hdr .wrap{height:64px}.bcf .bc-logo{height:30px}.bcf .bc-x{font-size:14px}.bcf .brand{gap:12px}.bcf .pill{font-size:10.5px;padding:8px 12px;letter-spacing:.1em}.bcf .foot .row{flex-direction:column;align-items:flex-start}.bcf .fnums{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%}.bcf .fnum{min-width:0;font-size:11px}.bcf .fnum b{font-size:13px;padding:2px 8px}.bcf .fnum i{width:40px;height:40px}.bcf .foot{background-image:radial-gradient(circle at 0% 110%,rgba(232,69,47,.25) 0 110px,transparent 111px)}
+@container bcf (max-width:700px){.bcf .wrap{padding:0 16px}.bcf .sec{padding:48px 0}.bcf .h1{font-size:34px}.bcf .h2{font-size:28px}.bcf .grid2{grid-template-columns:1fr;gap:30px}.bcf .grid3,.bcf .grid4{grid-template-columns:1fr}.bcf .btn{width:100%;padding:17px 18px;font-size:15px}.bcf .hdr .wrap{height:64px}.bcf .bc-logo{height:30px}.bcf .bc-x{font-size:14px}.bcf .brand{gap:12px}.bcf .pill{font-size:10.5px;padding:8px 12px;letter-spacing:.1em}.bcf .foot .row{flex-direction:column;align-items:flex-start}.bcf .fnums{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%}.bcf .fnum{min-width:0;font-size:11px}.bcf .fnum b{font-size:13px;padding:2px 8px}.bcf .fnum i{width:40px;height:40px}.bcf .foot{background-image:radial-gradient(circle at 0% 110%,rgba(242,107,29,.25) 0 110px,transparent 111px)}
 }
 @container bcf (max-width:420px){.bcf .pill{display:none}.bcf .hdr .wrap{justify-content:center}}
 </style><style>
-.bcf .rgpd{background:var(--navy);color:#C9D3E3;text-align:center;font-size:12.5px;line-height:1.55;padding:0 20px 28px}
+.bcf .rgpd{background:var(--noir);color:#D6D6D6;text-align:center;font-size:12.5px;line-height:1.55;padding:0 20px 28px}
 .bcf .rgpd p{max-width:640px;margin:0 auto}
 .bcf .rgpd a{color:#fff}
 .bcf .rcard{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff;display:flex;flex-direction:column}
 .bcf .rcard .hd{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}
-.bcf .rcard h3{font-size:17px;color:var(--navy)}
+.bcf .rcard h3{font-size:17px;color:var(--noir)}
 .bcf .prio{font-size:11px;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:999px;background:var(--bad-bg);color:var(--bad);white-space:nowrap}
 .bcf .prio.p2{background:#FFF6D6;color:#8A6A00}.bcf .prio.p3{background:var(--ok-bg);color:var(--ok)}
 .bcf .lv{display:flex;justify-content:space-between;align-items:center;padding:11px 20px;font-size:14px;gap:12px}
 .bcf .lv b{font-family:var(--f-serif);font-weight:400;font-size:18px}
 .bcf .lv.ok{background:var(--ok-bg);color:var(--ok)}.bcf .lv.wa{background:var(--warn-bg);color:var(--warn)}.bcf .lv.ba{background:var(--bad-bg);color:var(--bad)}
 .bcf .lock{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:18px;text-align:center;font-size:13.5px;color:var(--mut);background:repeating-linear-gradient(45deg,#fafafa,#fafafa 8px,#f4f4f4 8px,#f4f4f4 16px)}
-.bcf .lock strong{color:var(--navy)}
+.bcf .lock strong{color:var(--noir)}
 .bcf .blur{filter:blur(5px);user-select:none}
-.bcf .say{margin:16px 20px 20px;background:var(--navy);color:#fff;border-radius:12px;padding:14px 16px;font-size:13.5px;font-style:italic;flex:1}
+.bcf .say{margin:16px 20px 20px;background:var(--noir);color:#fff;border-radius:12px;padding:14px 16px;font-size:13.5px;font-style:italic;flex:1}
 .bcf .say small{display:block;font-style:normal;letter-spacing:.14em;text-transform:uppercase;font-size:10px;opacity:.65;margin-bottom:6px}
 .bcf .say em{color:var(--or-l);font-weight:600}
 .bcf .tabs{margin-top:40px}
@@ -108,14 +109,14 @@
 .bcf .story .ph{aspect-ratio:4/4.4;border-radius:6px}
 .bcf .story .h2{margin-bottom:18px}
 .bcf .story p{margin-bottom:14px}
-.bcf .quote{border-left:4px solid var(--or);background:#fff;padding:14px 18px;border-radius:0 12px 12px 0;font-style:italic;font-weight:500;color:var(--navy)}
-.bcf .sign{font-size:14px;color:var(--mut)}.bcf .sign strong{color:var(--navy)}
+.bcf .quote{border-left:4px solid var(--or);background:#fff;padding:14px 18px;border-radius:0 12px 12px 0;font-style:italic;font-weight:500;color:var(--noir)}
+.bcf .sign{font-size:14px;color:var(--mut)}.bcf .sign strong{color:var(--noir)}
 .bcf .final{text-align:center}
 .bcf .final .sub{margin:12px 0 26px}
 @container bcf (max-width:700px){.bcf .story .grid2{grid-template-columns:1fr}.bcf .story .ph{max-width:320px}}
 </style>
 <div class="bcf">
-  <div class="rgpd"><p>En validant ce formulaire, vous acceptez que BioConnect utilise votre prénom et votre e-mail pour vous envoyer le guide puis des informations sur ses produits. Désinscription possible à tout moment via le lien présent dans chaque e-mail. <a href="LIEN_CONFIDENTIALITE">Politique de confidentialité</a>.</p></div>
+  <div class="rgpd"><p>BioConnect traite votre prénom et votre e-mail pour vous envoyer le guide. Les informations sur nos produits ne vous sont envoyées que si vous avez coché la case prévue. Vous pouvez vous désinscrire à tout moment et exercer vos droits (accès, rectification, effacement, opposition) en écrivant à <!-- A_REMPLACER -->CONTACT_EMAIL. <a href="LIEN_CONFIDENTIALITE">Politique de confidentialité</a>.</p></div>
 
   <div class="sec"><div class="wrap">
     <div class="center">
@@ -135,20 +136,20 @@
         <div class="hd"><h3>Tension artérielle</h3><span class="prio p2">PRIORITÉ 2</span></div>
         <div class="lv ok"><span>Normal</span><b class="blur">90–140 / 60–90</b></div>
         <div class="lv wa"><span>Élevée</span><b class="blur">&gt; 140 / 90</b></div>
-        <div class="lv ba"><span>Urgence → 15</span><b class="blur">&gt; 180 / 110</b></div>
+        <div class="lv ba"><span>Urgence → 15</span><b class="blur">&gt; 180/110 ou &lt; 80/50</b></div>
         <div class="lock"><strong>Repères complets et phrase type</strong>dans le guide</div>
       </div>
       <div class="rcard">
         <div class="hd"><h3>Température</h3><span class="prio p3">PRIORITÉ 3</span></div>
         <div class="lv ok"><span>Normal</span><b class="blur">36,1 – 37,2 °C</b></div>
         <div class="lv wa"><span>Fièvre</span><b class="blur">37,5 – 39,9 °C</b></div>
-        <div class="lv ba"><span>Urgence → 15</span><b class="blur">≥ 40 °C</b></div>
+        <div class="lv ba"><span>Urgence → 15</span><b class="blur">≥ 40 °C ou &lt; 35 °C</b></div>
         <div class="lock"><strong>Repères complets et phrase type</strong>dans le guide</div>
       </div>
     </div>
   </div></div>
 
-  <div class="sec bg-lav"><div class="wrap">
+  <div class="sec bg-gris"><div class="wrap">
     <div class="center">
       <span class="kicker">Inclus dans le guide</span>
       <h2 class="serif h2">Les 6 étapes d'un <span class="accent">appel efficace</span></h2>
@@ -186,7 +187,7 @@
   </div></div>
   <div class="foot"><div class="wrap">
     <div class="row">
-      <div><div class="brand"><img class="bc-logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMzIgNDYiPjxyZWN0IHg9IjAiIHk9IjIiIHdpZHRoPSI0NiIgaGVpZ2h0PSI0MCIgcng9IjYiIGZpbGw9IiNGMjZCMUQiLz48cGF0aCBkPSJNNCAyM2gxMGw0LTkgNSAxNyA0LTEyIDMgNGgxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjx0ZXh0IHg9IjU4IiB5PSIxOSIgZmlsbD0iI0YyNkIxRCIgZm9udC1mYW1pbHk9IkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iNCI+QklPPC90ZXh0Pjx0ZXh0IHg9IjU4IiB5PSIzOSIgZmlsbD0iI0YyNkIxRCIgZm9udC1mYW1pbHk9IkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMS41IiB0ZXh0TGVuZ3RoPSIxNTAiPkNPTk5FQ1Q8L3RleHQ+PHBhdGggZD0iTTU4IDQzaDE3MiIgc3Ryb2tlPSIjRjI2QjFEIiBzdHJva2Utd2lkdGg9IjEuNiIvPjwvc3ZnPg==" alt="BioConnect"><span class="bc-x">× <span>♥</span> Spengler</span></div><div class="ref">Document de référence</div></div>
+      <div><div class="brand"><img class="bc-logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMzIgNDYiPjxyZWN0IHg9IjAiIHk9IjIiIHdpZHRoPSI0NiIgaGVpZ2h0PSI0MCIgcng9IjYiIGZpbGw9IiNGMjZCMUQiLz48cGF0aCBkPSJNNCAyM2gxMGw0LTkgNSAxNyA0LTEyIDMgNGgxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjx0ZXh0IHg9IjU4IiB5PSIxOSIgZmlsbD0iI0YyNkIxRCIgZm9udC1mYW1pbHk9IkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iNCI+QklPPC90ZXh0Pjx0ZXh0IHg9IjU4IiB5PSIzOSIgZmlsbD0iI0YyNkIxRCIgZm9udC1mYW1pbHk9IkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMS41IiB0ZXh0TGVuZ3RoPSIxNTAiPkNPTk5FQ1Q8L3RleHQ+PHBhdGggZD0iTTU4IDQzaDE3MiIgc3Ryb2tlPSIjRjI2QjFEIiBzdHJva2Utd2lkdGg9IjEuNiIvPjwvc3ZnPg==" alt="BioConnect"><span class="bc-x">× <span>♥</span> Spengler</span></div><div class="ref">Guide pratique</div></div>
       <div class="fnums">
         <div class="fnum"><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></i><b>15</b>SAMU</div>
         <div class="fnum"><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2s5 4.5 5 10a5 5 0 0 1-10 0c0-2.2 1-3.8 2-5 0 2 1 3 2 3 0-3 1-6 1-8z"/></svg></i><b>18</b>Pompiers</div>
@@ -194,7 +195,7 @@
         <div class="fnum"><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg></i><b>116 117</b>Médecin de garde</div>
       </div>
     </div>
-    <div class="retenir"><strong>À RETENIR</strong>Ce guide et ce kit ne remplacent ni un avis médical ni l'intervention des professionnels de santé. Ils constituent un outil simple de prévention et d'accompagnement, destiné à vous aider à réagir plus efficacement lorsqu'une urgence survient à domicile.</div>
+    <div class="retenir"><strong>À RETENIR</strong>Ce guide et les appareils de mesure ne remplacent ni un avis médical ni l'intervention des professionnels de santé. Ils constituent un outil simple de prévention et d'accompagnement, destiné à vous aider à réagir plus efficacement lorsqu'une urgence survient à domicile.</div>
     <!-- A_REMPLACER : e-mail de contact et réseaux sociaux (supprimez une ligne si inutile) -->
     <div class="fcontact">
       <a href="mailto:CONTACT_EMAIL"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>CONTACT_EMAIL</a>

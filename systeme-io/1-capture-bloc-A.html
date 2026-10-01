@@ -2,8 +2,10 @@
      PAGE 1 – CAPTURE · BLOC A (au-dessus du formulaire systeme.io)
      ---------------------------------------------------------------------
      Ordre dans l'éditeur :  [Code HTML : BLOC A]  →  [Formulaire systeme.io]  →  [Code HTML : BLOC B]
-     Formulaire : champs Prénom + E-mail, case de consentement, bouton
-     « JE REÇOIS LE GUIDE » (fond #F26B1D, arrondi max), section fond #0B2341.
+     Formulaire : Prénom + E-mail (+ champ « Vous êtes : particulier / professionnel de santé /
+     pharmacie » si vous voulez segmenter vos contacts), case NON obligatoire et NON pré-cochée :
+     « J'accepte de recevoir des informations sur les produits BioConnect », bouton
+     « JE REÇOIS LE GUIDE » (fond #F26B1D, arrondi max), section fond #111111.
      Action après envoi : rediriger vers la PAGE 2 (merci).
      À PERSONNALISER : recherchez « A_REMPLACER ».
      Section systeme.io en « Pleine largeur », padding 0. Le bloc Code HTML
@@ -11,7 +13,7 @@
      ===================================================================== -->
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
-.bcf{--or:#F26B1D;--or-d:#D9550B;--or-l:#FFA266;--red:#E8452F;--navy:#0B2341;--navy-2:#071A31;--txt:#2B3240;--mut:#5E6675;--cream:#FFF4EC;--lav:#F2EFFA;--line:#ECE6E0;
+.bcf{--or:#F26B1D;--or-d:#D9550B;--or-l:#FFA266;--noir:#111111;--noir-2:#000000;--txt:#2B2B2B;--mut:#5F5F5F;--cream:#FFF4EC;--gris:#F4F4F4;--line:#ECE6E0;
   --ok:#1E8E4E;--ok-bg:#E8F6EE;--warn:#B45A0A;--warn-bg:#FDF1E4;--bad:#C0322B;--bad-bg:#FBE8E7;--r:18px;
   --f-serif:'DM Serif Display',Georgia,serif;--f-sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
   container-type:inline-size;container-name:bcf;width:100%;text-align:left;
@@ -24,7 +26,7 @@
 .bcf a.btn,.bcf a.btn:hover{color:#fff;text-decoration:none}
 .bcf .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
 .bcf .sec{padding:68px 0}
-.bcf .serif{font-family:var(--f-serif);font-weight:400;color:var(--navy);letter-spacing:-.01em}
+.bcf .serif{font-family:var(--f-serif);font-weight:400;color:var(--noir);letter-spacing:-.01em}
 .bcf .h1{font-size:52px;line-height:1.08}
 .bcf .h2{font-size:38px;line-height:1.15}
 .bcf .accent{color:var(--or)}
@@ -32,7 +34,7 @@
 .bcf .center{text-align:center;max-width:720px;margin:0 auto}
 .bcf .center .sub{margin-top:12px;color:var(--mut)}
 .bcf .muted{color:var(--mut)}
-.bcf .bg-cream{background:var(--cream)}.bcf .bg-lav{background:var(--lav)}.bcf .bg-navy{background:var(--navy);color:#C9D3E3}
+.bcf .bg-cream{background:var(--cream)}.bcf .bg-gris{background:var(--gris)}.bcf .bg-noir{background:var(--noir);color:#D6D6D6}
 .bcf .grid2{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
 .bcf .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .bcf .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -40,7 +42,7 @@
 .bcf .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--or);color:#fff;font-weight:700;font-size:16px;letter-spacing:.03em;text-transform:uppercase;padding:18px 34px;border-radius:999px;border:0;cursor:pointer;box-shadow:0 10px 24px -10px rgba(242,107,29,.7);transition:transform .15s,background .15s}
 .bcf .btn:hover{background:var(--or-d);transform:translateY(-2px)}
 .bcf .btn svg{width:16px;height:16px}
-.bcf .btn.ghost{background:transparent;color:var(--navy)!important;border:2px solid var(--navy);box-shadow:none}
+.bcf .btn.ghost{background:transparent;color:var(--noir)!important;border:2px solid var(--noir);box-shadow:none}
 /* liste à coches */
 .bcf .checks{list-style:none}
 .bcf .checks li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
@@ -48,23 +50,24 @@
 /* emplacement image */
 .bcf .ph{position:relative;background:linear-gradient(135deg,#F4F1EE,#E9E4DF);border-radius:var(--r);overflow:hidden;display:flex;align-items:center;justify-content:center;color:#9a9188;font-size:14px;text-align:center}
 .bcf .ph::before{content:attr(data-label);position:absolute;padding:16px}
+.bcf .ph:has(img:not([style*="none"]))::before{display:none}
 .bcf .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain}
 .bcf .ph.cover img{object-fit:cover}
 /* carte */
 .bcf .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px}
-.bcf .card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.bcf .card h3{font-size:16px;font-weight:700;color:var(--noir);margin-bottom:6px}
 .bcf .card p{font-size:14.5px;color:var(--mut)}
 /* en-tête (couverture du guide) */
-.bcf .hdr{background:var(--navy);background-image:radial-gradient(circle at 92% -40%,rgba(255,255,255,.08) 0 160px,transparent 161px)}
+.bcf .hdr{background:var(--noir);background-image:radial-gradient(circle at 92% -40%,rgba(255,255,255,.08) 0 160px,transparent 161px)}
 .bcf .hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px}
 .bcf .brand{display:flex;align-items:center;gap:20px}
 .bcf .bc-logo{height:38px;width:auto}
 .bcf .bc-x{color:#fff;font-weight:700;font-size:17px;white-space:nowrap}
-.bcf .pill{background:var(--red);color:#fff!important;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:11px 22px;border-radius:999px;white-space:nowrap;text-decoration:none}
-.bcf .subhdr{background:var(--navy);border-top:1px solid rgba(255,255,255,.08);color:#C9D3E3;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;text-align:center;padding:9px 16px}
+.bcf .pill{background:var(--or);color:#fff!important;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:11px 22px;border-radius:999px;white-space:nowrap;text-decoration:none}
+.bcf .subhdr{background:var(--noir);border-top:1px solid rgba(255,255,255,.08);color:#D6D6D6;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;text-align:center;padding:9px 16px}
 .bcf .subhdr span{display:inline-block;border-bottom:2px solid var(--or);padding-bottom:3px}
 /* pied de page (pages intérieures du guide) */
-.bcf .foot{background:var(--navy);color:#C9D3E3;padding:52px 0 26px;background-image:radial-gradient(circle at 0% 110%,rgba(232,69,47,.3) 0 170px,transparent 171px)}
+.bcf .foot{background:var(--noir);color:#D6D6D6;padding:52px 0 26px;background-image:radial-gradient(circle at 0% 110%,rgba(242,107,29,.3) 0 170px,transparent 171px)}
 .bcf .foot .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
 .bcf .foot .ref{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#fff;margin-top:14px}
 .bcf .foot .ref::after{content:"";display:block;width:56px;height:3px;background:var(--or);margin-top:8px}
@@ -72,34 +75,35 @@
 .bcf .fnum{display:flex;flex-direction:column;align-items:center;gap:6px;color:#fff;font-size:12.5px;text-align:center;min-width:76px}
 .bcf .fnum i{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-style:normal}
 .bcf .fnum i svg{width:22px;height:22px}
-.bcf .fnum b{background:var(--red);color:#fff;border-radius:999px;padding:2px 12px;font-size:15px;white-space:nowrap}
-.bcf .retenir{background:#fff;color:var(--navy);border-radius:16px;padding:18px 22px;margin:34px 0 26px;font-size:14px}
+.bcf .fnum b{background:var(--or);color:#fff;border-radius:999px;padding:2px 12px;font-size:15px;white-space:nowrap}
+.bcf .retenir{background:#fff;color:var(--noir);border-radius:16px;padding:18px 22px;margin:34px 0 26px;font-size:14px}
 .bcf .retenir strong{display:block;font-size:13px;letter-spacing:.06em;margin-bottom:4px}
 .bcf .fcontact{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;margin-bottom:20px;font-size:14px}
 .bcf .fcontact a{color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
 .bcf .fcontact svg{width:18px;height:18px}
 .bcf .edit{border-top:1px solid rgba(255,255,255,.18);padding-top:20px;text-align:center;font-size:13px;line-height:1.7}
-.bcf .edit a{color:#C9D3E3;margin:0 8px}
+.bcf .edit a{color:#D6D6D6;margin:0 8px}
 .bcf .edit .legal{margin-top:10px;font-size:12px;opacity:.85}
 /* ---------- container query : bloc ≤ 700 px ---------- */
-@container bcf (max-width:700px){.bcf .wrap{padding:0 16px}.bcf .sec{padding:48px 0}.bcf .h1{font-size:34px}.bcf .h2{font-size:28px}.bcf .grid2{grid-template-columns:1fr;gap:30px}.bcf .grid3,.bcf .grid4{grid-template-columns:1fr}.bcf .btn{width:100%;padding:17px 18px;font-size:15px}.bcf .hdr .wrap{height:64px}.bcf .bc-logo{height:30px}.bcf .bc-x{font-size:14px}.bcf .brand{gap:12px}.bcf .pill{font-size:10.5px;padding:8px 12px;letter-spacing:.1em}.bcf .foot .row{flex-direction:column;align-items:flex-start}.bcf .fnums{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%}.bcf .fnum{min-width:0;font-size:11px}.bcf .fnum b{font-size:13px;padding:2px 8px}.bcf .fnum i{width:40px;height:40px}.bcf .foot{background-image:radial-gradient(circle at 0% 110%,rgba(232,69,47,.25) 0 110px,transparent 111px)}
+@container bcf (max-width:700px){.bcf .wrap{padding:0 16px}.bcf .sec{padding:48px 0}.bcf .h1{font-size:34px}.bcf .h2{font-size:28px}.bcf .grid2{grid-template-columns:1fr;gap:30px}.bcf .grid3,.bcf .grid4{grid-template-columns:1fr}.bcf .btn{width:100%;padding:17px 18px;font-size:15px}.bcf .hdr .wrap{height:64px}.bcf .bc-logo{height:30px}.bcf .bc-x{font-size:14px}.bcf .brand{gap:12px}.bcf .pill{font-size:10.5px;padding:8px 12px;letter-spacing:.1em}.bcf .foot .row{flex-direction:column;align-items:flex-start}.bcf .fnums{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%}.bcf .fnum{min-width:0;font-size:11px}.bcf .fnum b{font-size:13px;padding:2px 8px}.bcf .fnum i{width:40px;height:40px}.bcf .foot{background-image:radial-gradient(circle at 0% 110%,rgba(242,107,29,.25) 0 110px,transparent 111px)}
 }
 @container bcf (max-width:420px){.bcf .pill{display:none}.bcf .hdr .wrap{justify-content:center}}
 </style><style>
 .bcf .cap-hero{background:linear-gradient(120deg,#fff 0%,#fff 40%,var(--cream) 100%);padding:56px 0 40px}
 .bcf .cap-hero .grid2{grid-template-columns:1.1fr .9fr;gap:44px}
-.bcf .tag{display:inline-block;background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:18px}
+.bcf .tag{display:inline-block;background:var(--noir);color:#fff;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:18px}
 .bcf .tag span{color:var(--or-l)}
 .bcf .cap-hero .h1{margin-bottom:18px}
 .bcf .lead{font-size:18px;margin-bottom:24px;max-width:540px}
-.bcf .cap-hero .checks li{font-weight:500;color:var(--navy)}
+.bcf .cap-hero .checks li{font-weight:500;color:var(--noir)}
+.bcf .aud{margin-top:6px;font-size:14px;color:var(--mut);border-left:3px solid var(--or);padding-left:12px}
 .bcf .visual{position:relative}
-.bcf .visual .ph{aspect-ratio:4/3.4;background:linear-gradient(135deg,#fff,#F3EEE9);box-shadow:0 24px 50px -30px rgba(11,35,65,.45)}
+.bcf .visual .ph{aspect-ratio:4/3.4;background:linear-gradient(135deg,#fff,#F3EEE9);box-shadow:0 24px 50px -30px rgba(0,0,0,.45)}
 .bcf .free{position:absolute;top:-16px;right:-6px;z-index:2;width:112px;height:112px;border-radius:50%;background:var(--or);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:18px;line-height:1.1;transform:rotate(8deg)}
 .bcf .free small{font-weight:500;font-size:12px}
-.bcf .formhead{background:var(--navy);text-align:center;padding:28px 20px 30px;scroll-margin-top:10px}
+.bcf .formhead{background:var(--noir);text-align:center;padding:28px 20px 30px;scroll-margin-top:10px}
 .bcf .formhead h2{font-family:var(--f-serif);font-weight:400;font-size:30px;color:#fff;line-height:1.2}
-.bcf .formhead p{color:#C9D3E3;margin-top:6px;font-size:15px}
+.bcf .formhead p{color:#D6D6D6;margin-top:6px;font-size:15px}
 .bcf .formhead .down{display:block;margin:12px auto 0;width:32px;height:32px;color:var(--or-l)}
 @container bcf (max-width:700px){.bcf .cap-hero{padding:32px 0 30px}.bcf .cap-hero .grid2{grid-template-columns:1fr;gap:24px}.bcf .visual{order:-1;max-width:300px;margin:0 auto;width:100%}.bcf .visual .ph{aspect-ratio:4/3}.bcf .free{width:88px;height:88px;font-size:14px;right:0}.bcf .lead{font-size:16.5px}.bcf .formhead h2{font-size:24px}
 }
@@ -122,6 +126,7 @@
         <li>Le protocole d'appel aux secours en 6 étapes</li>
         <li>Les numéros d'urgence : 15, 18, 112, 116 117</li>
       </ul>
+      <p class="aud">Pour les particuliers, les professionnels de santé et les pharmacies.</p>
     </div>
     <div class="visual">
       <div class="free">GRATUIT<small>format PDF</small></div>
