@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kit Urgence Domicile – Bioconnect × Spengler</title>
-</head>
-<body style="margin:0">
-
 <!-- =====================================================================
      DÉBUT DU CODE À COLLER DANS SYSTEME.IO (bloc « Code HTML / Raw HTML »)
      ---------------------------------------------------------------------
@@ -14,17 +5,23 @@
        - LIEN_COMMANDE  : URL de votre page de commande systeme.io
        - PRIX           : prix de vente / prix barré
        - IMG_xxx        : URL de vos images (Médiathèque systeme.io → copier le lien)
-     Tout le style est préfixé par .bcf pour ne pas casser l'éditeur systeme.io.
+     RÉGLAGES SYSTEME.IO :
+       1. Éditeur de la page → ajoutez une SECTION, mettez-la en « Pleine largeur »
+          et ses marges intérieures (padding) à 0.
+       2. Glissez-y l'élément « Raw HTML » (ou « Code HTML ») et collez ce code.
+       3. Le Raw HTML ne s'affiche PAS dans l'aperçu : vérifiez sur la page publiée.
+     Code compatible : pas de <html>/<head>/<body>, polices chargées via @import,
+     z-index ≤ 19, aucune image en base64, styles préfixés par .bcf.
      ===================================================================== -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
-
 <style>
-.bcf{--or:#F26B1D;--or-d:#D9550B;--navy:#0B2341;--txt:#2B3240;--mut:#5E6675;--cream:#FFF4EC;--lav:#F2EFFA;--line:#ECE6E0;--white:#fff;--ok:#1E8E4E;--ok-bg:#E8F6EE;--warn:#B45A0A;--warn-bg:#FDF1E4;--bad:#C0322B;--bad-bg:#FBE8E7;
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Caveat:wght@600&display=swap');
+.bcf{width:100%;text-align:left;--or:#F26B1D;--or-d:#D9550B;--navy:#0B2341;--txt:#2B3240;--mut:#5E6675;--cream:#FFF4EC;--lav:#F2EFFA;--line:#ECE6E0;--white:#fff;--ok:#1E8E4E;--ok-bg:#E8F6EE;--warn:#B45A0A;--warn-bg:#FDF1E4;--bad:#C0322B;--bad-bg:#FBE8E7;
   font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--txt);background:var(--white);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
 .bcf *,.bcf *::before,.bcf *::after{box-sizing:border-box}
-.bcf h1,.bcf h2,.bcf h3,.bcf p,.bcf ul{margin:0;padding:0}
+.bcf h1,.bcf h2,.bcf h3,.bcf p,.bcf ul,.bcf li{margin:0;padding:0;text-align:inherit;text-transform:none;font-style:normal;letter-spacing:normal;line-height:inherit}
+.bcf p,.bcf li{font-size:inherit;color:inherit;font-family:inherit}
+.bcf a.btn,.bcf a.btn:hover{color:#fff;text-decoration:none}
 .bcf img{max-width:100%;display:block}
 .bcf a{color:inherit}
 .bcf .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
@@ -42,7 +39,7 @@
 .bcf .btn.lg{font-size:17px;padding:20px 38px}
 
 /* Header */
-.bcf .hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bcf .hdr{position:relative;z-index:5;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
 .bcf .hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
 .bcf .logo{display:flex;align-items:center;gap:14px;font-weight:700;font-size:22px;color:var(--navy);text-decoration:none}
 .bcf .logo b{color:var(--or)}
@@ -207,7 +204,7 @@
   .bcf .btn.lg{width:100%;justify-content:center;padding:18px 20px}
   .bcf .box{padding:24px}
   .bcf .pdf{width:92px;height:92px;font-size:11px}
-  .bcf .sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px 16px;box-shadow:0 -8px 20px -12px rgba(0,0,0,.25)}
+  .bcf .sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:19;background:#fff;border-top:1px solid var(--line);padding:10px 16px;box-shadow:0 -8px 20px -12px rgba(0,0,0,.25)}
   .bcf .sticky .btn{width:100%;justify-content:center;padding:14px}
   .bcf .ftr{padding-bottom:90px}
 }
@@ -500,5 +497,3 @@
 </div>
 
 <!-- ======================= FIN DU CODE À COLLER ======================= -->
-</body>
-</html>
