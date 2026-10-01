@@ -39,12 +39,15 @@
 @media (max-width:600px){.bcf .sec{padding:48px 0}.bcf .wrap{padding:0 16px}.bcf .btn{width:100%;padding:17px 18px;font-size:15px}}
 </style>
 <style>
-.bcf .top{border-bottom:1px solid var(--line);background:#fff}
-.bcf .top .wrap{display:flex;align-items:center;justify-content:center;height:68px}
-.bcf .logo{display:flex;align-items:center;gap:14px;font-weight:700;font-size:21px;color:var(--navy)}
-.bcf .logo b{color:var(--or)}
-.bcf .logo .sep{width:1px;height:28px;background:#cfd3da}
-.bcf .logo .sp{font-weight:500;font-size:18px;display:flex;align-items:center;gap:6px}
+.bcf .top{background:var(--navy);background-image:radial-gradient(circle at 92% -40%,rgba(255,255,255,.08) 0 160px,transparent 161px)}
+.bcf .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px}
+.bcf .brand{display:flex;align-items:center;gap:22px}
+.bcf .bc-logo{height:38px;width:auto;display:block}
+.bcf .bc-x{color:#fff;font-weight:700;font-size:17px;white-space:nowrap}
+.bcf .bc-x .hrt{color:#fff}
+.bcf .gp{background:#E8452F;color:#fff;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:11px 22px;border-radius:999px;white-space:nowrap}
+.bcf .subtop{background:var(--navy);border-top:1px solid rgba(255,255,255,.08);color:#C9D3E3;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;text-align:center;padding:9px 16px}
+.bcf .subtop span{display:inline-block;border-bottom:2px solid var(--or);padding-bottom:3px}
 .bcf .hero{background:linear-gradient(120deg,#fff 0%,#fff 40%,var(--cream) 100%);padding:56px 0 40px}
 .bcf .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
 .bcf .pill{display:inline-block;background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:18px}
@@ -64,16 +67,20 @@
 .bcf .formhead .down{display:block;margin:12px auto 0;width:34px;height:34px;color:#FFA266;animation:bcfb 1.6s infinite}
 @keyframes bcfb{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 @media (max-width:900px){.bcf .hero .wrap{grid-template-columns:1fr;gap:26px}.bcf .visual{order:-1;max-width:300px;margin:0 auto;width:100%}.bcf .visual .ph{aspect-ratio:4/3}}
-@media (max-width:600px){.bcf .hero{padding:36px 0 30px}.bcf .hero .lead{font-size:16.5px}.bcf .free{width:92px;height:92px;font-size:15px;right:0}.bcf .logo{font-size:18px}.bcf .logo .sp{font-size:16px}}
+@media (max-width:420px){.bcf .gp{display:none}.bcf .top .wrap{justify-content:center}}
+@media (max-width:600px){.bcf .hero{padding:36px 0 30px}.bcf .hero .lead{font-size:16.5px}.bcf .free{width:92px;height:92px;font-size:15px;right:0}.bcf .top .wrap{height:64px}.bcf .bc-logo{height:30px}.bcf .bc-x{font-size:14px}.bcf .brand{gap:12px}.bcf .gp{font-size:10.5px;padding:8px 12px;letter-spacing:.1em}}
 </style>
 
 <div class="bcf">
   <div class="top"><div class="wrap">
-    <div class="logo">
-      <span><b>Bio</b>connect</span><span class="sep"></span>
-      <span class="sp"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B2341" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 17s-4.5-2.6-4.5-5.6A2.4 2.4 0 0 1 12 10a2.4 2.4 0 0 1 4.5 1.4C16.5 14.4 12 17 12 17z" fill="#0B2341"/></svg>Spengler</span>
+    <div class="brand">
+      <!-- Logo recréé en SVG. Pour le logo officiel : remplacez le <svg> par <img src="IMG_LOGO" alt="BioConnect" style="height:38px"> -->
+      <svg class="bc-logo" viewBox="0 0 230 44" role="img" aria-label="BioConnect"><rect x="0" y="2" width="46" height="40" rx="6" fill="#F26B1D"/><path d="M4 23h10l4-9 5 17 4-12 3 4h12" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><text x="58" y="19" fill="#F26B1D" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="600" letter-spacing="4">BIO</text><text x="58" y="39" fill="#F26B1D" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="600" letter-spacing="1.6" textLength="150">CONNECT</text><path d="M58 42.5h172" stroke="#F26B1D" stroke-width="1.6"/></svg>
+      <span class="bc-x">× <span class="hrt">♥</span> Spengler</span>
     </div>
+    <span class="gp">Guide pratique</span>
   </div></div>
+  <div class="subtop"><span>Santé à domicile</span></div>
 
   <div class="hero"><div class="wrap">
     <div>

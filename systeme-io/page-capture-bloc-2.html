@@ -60,18 +60,21 @@
 .bcf .story p{margin-bottom:14px}
 .bcf .quote{border-left:4px solid var(--or);background:#fff;padding:14px 18px;border-radius:0 12px 12px 0;font-style:italic;font-weight:500;color:var(--navy)}
 .bcf .sign{margin-top:16px;font-size:14px;color:var(--mut)}.bcf .sign strong{color:var(--navy)}
-.bcf .nums{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
-.bcf .num{border-radius:16px;padding:22px 14px;text-align:center;color:#fff}
-.bcf .num strong{display:block;font-size:30px;line-height:1.1}
-.bcf .num span{font-size:13px;font-weight:600;opacity:.95}
-.bcf .final{text-align:center}
-.bcf .final h2{margin-bottom:12px}
-.bcf .final p{color:var(--mut);margin-bottom:26px}
-.bcf .disc{background:#FFF8E6;border-top:1px solid #F3E2B5;color:#6B5310;font-size:13.5px;padding:18px 0;text-align:center}
-.bcf .ftr{background:#071A31;color:#B7C2D3;font-size:13px;padding:26px 0}
-.bcf .ftr .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
-.bcf .ftr a{color:#B7C2D3;margin-right:14px}
-@media (max-width:900px){.bcf .tabs,.bcf .steps{grid-template-columns:1fr}.bcf .story .wrap{grid-template-columns:1fr;gap:30px}.bcf .story .ph{max-width:340px}.bcf .nums{grid-template-columns:repeat(2,1fr)}}
+.bcf .foot{background:var(--navy);color:#C9D3E3;padding:52px 0 26px;background-image:radial-gradient(circle at 0% 110%,rgba(232,69,47,.35) 0 190px,transparent 191px)}
+.bcf .foot .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
+.bcf .foot .ref{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#fff;margin-top:14px}
+.bcf .foot .ref::after{content:"";display:block;width:56px;height:3px;background:var(--or);margin-top:8px}
+.bcf .fnums{display:flex;flex-wrap:wrap;gap:18px}
+.bcf .fnum{display:flex;flex-direction:column;align-items:center;gap:6px;color:#fff;font-size:12.5px;text-align:center;min-width:76px}
+.bcf .fnum i{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-style:normal}
+.bcf .fnum i svg{width:22px;height:22px}
+.bcf .fnum b{background:#E8452F;color:#fff;border-radius:999px;padding:2px 12px;font-size:15px}
+.bcf .retenir{background:#fff;color:var(--navy);border-radius:16px;padding:18px 22px;margin:36px 0 30px;font-size:14px}
+.bcf .retenir strong{display:block;font-size:13px;letter-spacing:.06em;margin-bottom:4px}
+.bcf .edit{border-top:1px solid rgba(255,255,255,.18);padding-top:20px;text-align:center;font-size:13px;line-height:1.7}
+.bcf .edit a{color:#C9D3E3;margin:0 8px}
+.bcf .edit .legal{margin-top:10px;font-size:12px;opacity:.85}
+@media (max-width:900px){.bcf .tabs,.bcf .steps{grid-template-columns:1fr}.bcf .story .wrap{grid-template-columns:1fr;gap:30px}.bcf .story .ph{max-width:340px}.bcf .foot .row{flex-direction:column;align-items:flex-start}.bcf .fnums{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%}.bcf .fnum{min-width:0;font-size:11px}.bcf .fnum b{font-size:13px;padding:2px 8px;white-space:nowrap}.bcf .fnum i{width:40px;height:40px}.bcf .foot{background-image:radial-gradient(circle at 0% 110%,rgba(232,69,47,.25) 0 110px,transparent 111px)}}
 </style>
 
 <div class="bcf">
@@ -139,28 +142,30 @@
     </div>
   </div></div>
 
-  <div class="sec"><div class="wrap">
-    <div class="center">
-      <span class="kicker">À garder sous la main</span>
-      <h2 class="serif h2">Les numéros d'urgence</h2>
-    </div>
-    <div class="nums">
-      <div class="num" style="background:#C4342C"><strong>15</strong><span>SAMU</span></div>
-      <div class="num" style="background:#F08425"><strong>18</strong><span>Pompiers</span></div>
-      <div class="num" style="background:#2F86B9"><strong>112</strong><span>Urgences européennes</span></div>
-      <div class="num" style="background:#0B2341"><strong>116 117</strong><span>Médecin de garde</span></div>
-    </div>
-  </div></div>
-
   <div class="sec final" style="background:var(--cream)"><div class="wrap">
     <h2 class="serif h2">Soyez prêt <span class="accent">avant</span> que l'urgence arrive</h2>
     <p>Recevez gratuitement le guide complet par e-mail.</p>
     <a class="btn" href="#formulaire">Je reçois mon guide gratuit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m9 18 6-6-6-6"/></svg></a>
   </div></div>
 
-  <div class="disc"><div class="wrap">⚠️ Ce guide ne remplace ni un avis médical ni l'intervention des professionnels de santé. En cas d'urgence vitale ou de doute sérieux, appelez le <strong>15</strong> ou le <strong>112</strong>.</div></div>
-  <div class="ftr"><div class="wrap">
-    <div>© Bioconnect – Solutions biomédicales × Spengler</div>
-    <div><!-- A_REMPLACER : vos pages légales --><a href="#">Mentions légales</a><a href="#">Confidentialité</a></div>
+  <div class="foot"><div class="wrap">
+    <div class="row">
+      <div>
+        <div class="brand"><svg class="bc-logo" viewBox="0 0 230 44" role="img" aria-label="BioConnect"><rect x="0" y="2" width="46" height="40" rx="6" fill="#F26B1D"/><path d="M4 23h10l4-9 5 17 4-12 3 4h12" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><text x="58" y="19" fill="#F26B1D" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="600" letter-spacing="4">BIO</text><text x="58" y="39" fill="#F26B1D" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="600" letter-spacing="1.6" textLength="150">CONNECT</text><path d="M58 42.5h172" stroke="#F26B1D" stroke-width="1.6"/></svg><span class="bc-x">× <span class="hrt">♥</span> Spengler</span></div>
+        <div class="ref">Document de référence</div>
+      </div>
+      <div class="fnums">
+        <div class="fnum"><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></i><b>15</b>SAMU</div>
+        <div class="fnum"><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2s5 4.5 5 10a5 5 0 0 1-10 0c0-2.2 1-3.8 2-5 0 2 1 3 2 3 0-3 1-6 1-8z"/><path d="M12 22a7 7 0 0 1-7-7c0-1.5.4-2.8 1-3.9.3 3.8 2.8 6.9 6 6.9s5.7-3.1 6-6.9c.6 1.1 1 2.4 1 3.9a7 7 0 0 1-7 7z"/></svg></i><b>18</b>Pompiers</div>
+        <div class="fnum"><i><svg viewBox="0 0 24 24" fill="#fff"><g transform="translate(12 12)"><circle r="1.3" cy="-8"/><circle r="1.3" cy="8"/><circle r="1.3" cx="-8"/><circle r="1.3" cx="8"/><circle r="1.3" cx="5.7" cy="-5.7"/><circle r="1.3" cx="-5.7" cy="-5.7"/><circle r="1.3" cx="5.7" cy="5.7"/><circle r="1.3" cx="-5.7" cy="5.7"/></g></svg></i><b>112</b>Urgences EU</div>
+        <div class="fnum"><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg></i><b>116 117</b>Médecin de garde</div>
+      </div>
+    </div>
+    <div class="retenir"><strong>À RETENIR</strong>Ce guide ne remplace ni un avis médical ni l'intervention des professionnels de santé. Il constitue un outil simple de prévention et d'accompagnement, destiné à vous aider à réagir plus efficacement lorsqu'une urgence survient à domicile.</div>
+    <div class="edit">
+      Guide édité par BioConnect × ♥ Spengler — Matériel médical de confiance<br>
+      Ce guide ne remplace pas un avis médical. En cas de doute, appelez le 15.
+      <div class="legal">© BioConnect – Solutions biomédicales · <!-- A_REMPLACER : vos pages légales --><a href="#">Mentions légales</a><a href="#">Confidentialité</a></div>
+    </div>
   </div></div>
 </div>
