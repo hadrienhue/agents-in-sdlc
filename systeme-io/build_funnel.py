@@ -377,7 +377,7 @@ P2_CSS = r"""<style>
 P2 = note("PAGE 2 – MERCI (un seul bloc Code HTML)", [
     "Page vers laquelle redirige le formulaire de la page 1.",
     "À PERSONNALISER : LIEN_DRIVE_PDF (lien de partage Drive du guide, accès « Tous",
-    "les utilisateurs disposant du lien »), LIEN_PAGE_3, IMG_KIT_COMPLET, e-mail expéditeur.",
+    "les utilisateurs disposant du lien »), LIEN_PAGE_3, e-mail expéditeur.",
 ]) + DS + P2_CSS + f"""
 <div class="bcf">
 {header("Guide pratique")}
@@ -407,9 +407,9 @@ P2 = note("PAGE 2 – MERCI (un seul bloc Code HTML)", [
       <h2 class="serif h2">Le guide explique comment mesurer. <span class="accent">La trousse contient les appareils.</span></h2>
       <p>Pour appliquer le guide, il faut un oxymètre, un tensiomètre et un thermomètre, réunis au même endroit. La trousse de secours Spengler réunit ces trois appareils.</p>
       <ul class="mini">
-        <li>Tensiomètre<span>AutoTensio®</span></li>
+        <li>Tensiomètre<span>Neotens</span></li>
         <li>Oxymètre de pouls<span>OxyStart®</span></li>
-        <li>Thermomètre infrarouge<span>Tempo Easy</span></li>
+        <li>Thermomètre infrarouge<span>Tempo Pro</span></li>
         <li>Trousse<span>Spengler</span></li>
       </ul>
       <!-- A_REMPLACER : URL de la page 3 (vente) -->
@@ -520,7 +520,7 @@ ICO = lambda d: f'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
 
 P3 = note("PAGE 3 – VENTE (un seul bloc Code HTML)", [
     "À PERSONNALISER : LIEN_COMMANDE (page de commande systeme.io), prix,",
-    "IMG_xxx (URL des photos), e-mail et réseaux sociaux dans le pied de page.",
+    "IMG_FONDATEUR / IMG_FAMILLE (URL des photos), e-mail et réseaux sociaux.",
 ]) + DS + P3_CSS + f"""
 <div class="bcf">
 {header("Commander", "#offre")}
@@ -565,9 +565,9 @@ P3 = note("PAGE 3 – VENTE (un seul bloc Code HTML)", [
       <h2 class="serif h2">Les appareils pour mesurer <span class="accent">les signes vitaux essentiels</span></h2>
     </div>
     <div class="grid4">
-{kcard("IMG_TENSIOMETRE","Tensiomètre électronique Spengler","Photo tensiomètre",ICO('<path d="M20.8 8.6a5 5 0 0 0-8.8-3.2 5 5 0 0 0-8.8 3.2C3.2 14 12 20 12 20s8.8-6 8.8-11.4z"/>'),"Tension artérielle","Pression systolique, diastolique et pouls.","AutoTensio®")}
+{kcard("IMG_TENSIOMETRE","Tensiomètre électronique Spengler","Photo tensiomètre",ICO('<path d="M20.8 8.6a5 5 0 0 0-8.8-3.2 5 5 0 0 0-8.8 3.2C3.2 14 12 20 12 20s8.8-6 8.8-11.4z"/>'),"Tension artérielle","Pression systolique, diastolique et pouls.","Neotens")}
 {kcard("IMG_OXYMETRE","Oxymètre de pouls Spengler","Photo oxymètre",ICO('<rect x="5" y="7" width="14" height="10" rx="4"/><path d="M9 12h6"/>'),"Saturation en oxygène","Taux d'oxygène dans le sang (SpO₂) et fréquence cardiaque (pouls).","OxyStart®")}
-{kcard("IMG_THERMOMETRE","Thermomètre infrarouge Spengler","Photo thermomètre",ICO('<path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z"/>'),"Température","Mesure frontale sans contact.","Tempo Easy")}
+{kcard("IMG_THERMOMETRE","Thermomètre infrarouge Spengler","Photo thermomètre",ICO('<path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z"/>'),"Température","Mesure frontale sans contact.","Tempo Pro")}
 {kcard("IMG_TROUSSE","Trousse Spengler","Photo trousse",ICO('<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2"/>'),"Trousse","Tout le matériel rangé au même endroit.","Incluse")}
     </div>
   </div></div>
@@ -598,9 +598,9 @@ P3 = note("PAGE 3 – VENTE (un seul bloc Code HTML)", [
       <h2 class="serif h2">Ce que vous recevez</h2>
       <div class="box">
         <ul>
-          <li><span>Tensiomètre électronique AutoTensio®</span><span>Inclus</span></li>
+          <li><span>Tensiomètre électronique Neotens</span><span>Inclus</span></li>
           <li><span>Oxymètre de pouls OxyStart®</span><span>Inclus</span></li>
-          <li><span>Thermomètre infrarouge Tempo Easy</span><span>Inclus</span></li>
+          <li><span>Thermomètre infrarouge Tempo Pro</span><span>Inclus</span></li>
           <li><span>Trousse Spengler</span><span>Incluse</span></li>
           <li><span>Guide des mesures médicales d'urgence (PDF)</span><span>Inclus</span></li>
         </ul>
@@ -672,13 +672,35 @@ def scope_cq(html):
         out.append(body + '}'); i = k
     out.append(html[i:]); return ''.join(out)
 
+# ---------------------------------------------------------------- photos en base64
+IMG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "img")
+PICS = {"GUIDE": "guide.webp", "KIT_COMPLET": "kit.webp", "TROUSSE": "kit.webp",
+        "TENSIOMETRE": "tensiometre.webp", "OXYMETRE": "oxymetre.webp", "THERMOMETRE": "thermometre.webp"}
+def embed_pics(html):
+    """Remplace les <img src="IMG_xxx"> par une photo base64 déclarée UNE fois par bloc (classe CSS)."""
+    used = []
+    def rep(m):
+        key, alt = m.group(1), m.group(2)
+        if key not in PICS: return m.group(0)
+        if PICS[key] not in used: used.append(PICS[key])
+        return f'<span class="pic pic-{PICS[key][:-5]}" role="img" aria-label="{alt}"></span>'
+    html = _re.sub(r'<img src="IMG_([A-Z_]+)" alt="([^"]*)" onerror="[^"]*">', rep, html)
+    html = _re.sub(r'\s*<!-- A_REMPLACER : URL (du visuel / couverture du guide|de la photo de la trousse) -->', '', html)
+    if not used: return html
+    css = ".bcf .pic{position:relative;z-index:1;display:block;width:100%;height:100%;background:#fff center/contain no-repeat}\n.bcf .ph:has(.pic)::before{display:none}\n"
+    for f in used:
+        b64 = base64.b64encode(open(os.path.join(IMG_DIR, f), "rb").read()).decode()
+        css += f".bcf .pic-{f[:-5]}{{background-image:url(data:image/webp;base64,{b64})}}\n"
+    i = html.index("</style>")
+    return html[:i] + css + html[i:]
+
 FILES = {
     "1-capture-bloc-A.html": P1A,
     "1-capture-bloc-B.html": P1B,
     "2-merci.html": P2,
     "3-vente.html": P3,
 }
-FILES = {k: scope_cq(v) for k, v in FILES.items()}
+FILES = {k: embed_pics(scope_cq(v)) for k, v in FILES.items()}
 P1A, P1B, P2, P3 = (FILES[k] for k in FILES)
 for name, html in FILES.items():
     assert "<!DOCTYPE" not in html and "<html" not in html and "<body" not in html and "<head" not in html

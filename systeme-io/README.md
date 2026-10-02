@@ -26,13 +26,15 @@ Tunnel en 3 pages : **capture → merci → vente**. Chaque fichier `.html` se c
 | `CONTACT_EMAIL`, `EXPEDITEUR_EMAIL` | E-mail de contact, adresse d'expédition des e-mails |
 | `LIEN_FACEBOOK`, `LIEN_INSTAGRAM`, `LIEN_LINKEDIN` | Réseaux sociaux (supprimez la ligne si inutile) |
 | `LIEN_MENTIONS_LEGALES`, `LIEN_CONFIDENTIALITE`, `LIEN_CGV` | Pages légales |
-| `IMG_GUIDE`, `IMG_KIT_COMPLET`, `IMG_FONDATEUR`, `IMG_TENSIOMETRE`, `IMG_OXYMETRE`, `IMG_THERMOMETRE`, `IMG_TROUSSE`, `IMG_FAMILLE` | URL des photos (médiathèque systeme.io → copier le lien). Pas de base64 pour les photos : la page deviendrait trop lourde. |
+| `IMG_FONDATEUR`, `IMG_FAMILLE` | URL des 2 photos encore manquantes (médiathèque systeme.io → copier le lien) |
 
 ## Design system (commun aux 4 blocs)
 
 - Tout le style est préfixé par `.bcf` : il ne déborde ni sur l'éditeur ni sur le thème.
 - Variables CSS sur `.bcf` : `--or #F26B1D`, `--noir #111111`, `--cream`, `--gris`, `--line`, etc.
 - Logo BioConnect en **SVG base64** (léger, environ 1 Ko). Il ne demande aucun téléversement.
+- Photos produits et couverture du guide **intégrées en base64** (WebP compressé, de 5 à 26 Ko chacune, sources dans `img/`). Chaque photo n'est déclarée qu'une fois par bloc, sous forme de classe CSS `.pic-…`, même si elle apparaît plusieurs fois. Poids des blocs : capture A environ 48 Ko, merci environ 39 Ko, vente environ 86 Ko.
+- Pour changer une photo : remplacez le fichier dans `img/` (même nom), puis relancez `python3 build_funnel.py`.
 - Responsive : **container queries à 700 px** sur `.bcf`. La mise en page s'adapte à la largeur du bloc, pas seulement à celle de l'écran.
 - Compatibilité systeme.io : aucune balise `<!DOCTYPE>`, `<html>`, `<head>` ou `<body>`, polices chargées par `@import`, z-index ≤ 19.
 - Barre « Commander » fixe sur mobile (page 3) : elle est placée **hors** de `.bcf`, parce que `container-type` empêcherait `position:fixed` de fonctionner.
