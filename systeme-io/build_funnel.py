@@ -279,7 +279,7 @@ P1B_CSS = r"""<style>
 @container bcf (max-width:700px){.story .grid2{grid-template-columns:1fr}.squote{order:2;padding:28px 22px}.squote blockquote{font-size:22px}}
 </style>"""
 
-STORY_NARR = """      <p>Une nuit, mon beau-père a eu beaucoup de mal à respirer. Avec un oxymètre, j'ai mesuré sa saturation en oxygène : elle était anormalement basse. J'ai transmis ce chiffre au médecin régulateur, qui a aussitôt envoyé les pompiers avec de l'oxygène.</p>
+STORY_NARR_P1 = """      <p>Une nuit, mon beau-père a eu beaucoup de mal à respirer. Avec un oxymètre, j'ai mesuré sa saturation en oxygène : elle était anormalement basse. J'ai transmis ce chiffre au médecin régulateur, qui a aussitôt envoyé les pompiers avec de l'oxygène.</p>
       <p>Ce soir-là, une mesure prise en quelques secondes a donné aux secours une information concrète pour décider.</p>"""
 
 STORY_QUOTE = """<figure class="squote">
@@ -287,6 +287,9 @@ STORY_QUOTE = """<figure class="squote">
       <blockquote>Je suis convaincu que cette information a contribué à lui sauver la vie.</blockquote>
       <figcaption>Témoignage d'un dirigeant de BioConnect</figcaption>
     </figure>"""
+
+STORY_NARR = """      <p>Une nuit, l'un de nos proches a eu beaucoup de mal à respirer. Grâce à un oxymètre, nous avons constaté que sa saturation en oxygène était anormalement basse. Nous avons transmis ce chiffre au médecin régulateur, qui a aussitôt envoyé les pompiers avec de l'oxygène.</p>
+      <p>Ce soir-là, une mesure prise en quelques secondes a donné aux secours une information concrète pour décider.</p>"""
 
 P1B = note("PAGE 1 – CAPTURE · BLOC B (en dessous du formulaire systeme.io)", [
     "À PERSONNALISER : recherchez « A_REMPLACER ».",
@@ -346,7 +349,7 @@ P1B = note("PAGE 1 – CAPTURE · BLOC B (en dessous du formulaire systeme.io)",
     <div>
       <span class="kicker">Pourquoi ce guide</span>
       <h2 class="serif h2">Quelques chiffres peuvent <span class="accent">faire la différence</span></h2>
-{STORY_NARR}
+{STORY_NARR_P1}
       <p class="hl">Ce guide vous donne les mêmes repères : utiliser l'oxymètre, le tensiomètre et le thermomètre, lire les résultats et transmettre les bons chiffres aux secours.</p>
     </div>
   </div></div></div>
@@ -437,11 +440,8 @@ P3_CSS = r"""<style>
 .bcf .perk svg{flex:0 0 38px;height:38px;color:var(--or)}
 .bcf .perk h3{font-size:14px;font-weight:700;text-transform:uppercase;color:var(--noir);line-height:1.25;margin-bottom:4px}
 .bcf .perk p{font-size:13px;color:var(--mut);line-height:1.45}
-.bcf .story .grid2{grid-template-columns:.85fr 1.15fr}
-.bcf .squote{margin:0;padding:36px 34px;background:var(--noir);color:#fff;border-radius:var(--r);position:relative}
-.bcf .squote .qmark{display:block;font-family:var(--f-serif);font-size:96px;line-height:.6;color:var(--or);height:44px}
-.bcf .squote blockquote{margin:0;font-family:var(--f-serif);font-size:28px;line-height:1.3;color:#fff}
-.bcf .squote figcaption{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.2);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#D6D6D6}
+.bcf .story-c{max-width:760px;margin:0 auto;text-align:center}
+.bcf .story-c p{text-align:center}
 .bcf .story .h2{margin-bottom:20px}
 .bcf .story p{margin-bottom:14px}
 .bcf .quote{border-left:4px solid var(--or);background:var(--cream);padding:14px 18px;border-radius:0 12px 12px 0;font-style:italic;font-weight:500;color:var(--noir)}
@@ -491,11 +491,9 @@ P3_CSS = r"""<style>
 .bcf .final .ph{aspect-ratio:4/3.4}
 @container bcf (max-width:700px){
   .s-hero{padding:34px 0}
-  .s-hero .grid2,.story .grid2{grid-template-columns:1fr}
+  .s-hero .grid2{grid-template-columns:1fr}
   .s-hero .lead{font-size:16.5px}
   .badge{width:104px;height:104px;font-size:11.5px}
-  .squote{order:2;padding:28px 22px}
-  .squote blockquote{font-size:22px}
   .perks .grid4{grid-template-columns:1fr 1fr;gap:18px}
   .kit .grid4{grid-template-columns:1fr 1fr;gap:12px}
   .kit .card{padding:14px}
@@ -555,14 +553,11 @@ P3 = note("PAGE 3 – VENTE (un seul bloc Code HTML)", [
     <div class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M15.5 14.2c3.2-.4 6 1.5 6 4.8"/></svg><div><h3>Toute la famille</h3><p>Adultes, enfants et seniors</p></div></div>
   </div></div></div>
 
-  <div class="sec story"><div class="wrap"><div class="grid2">
-    {STORY_QUOTE}
-    <div>
+  <div class="sec story"><div class="wrap"><div class="story-c">
       <span class="kicker">Notre histoire</span>
       <h2 class="serif h2">Pourquoi avons-nous créé <span class="accent">cette trousse&nbsp;?</span></h2>
 {STORY_NARR}
       <p class="hl">C'est de cette expérience qu'est née la trousse : réunir, avec Spengler, marque spécialisée dans le matériel de diagnostic médical, les trois appareils utiles dans ces moments-là, le tensiomètre, l'oxymètre et le thermomètre.</p>
-    </div>
   </div></div></div>
 
   <div class="sec bg-gris kit"><div class="wrap">
