@@ -264,23 +264,29 @@ P1B_CSS = r"""<style>
 .bcf .step{display:flex;gap:14px;align-items:center;padding:20px}
 .bcf .step .n{font-family:var(--f-serif);font-size:28px;color:var(--or);line-height:1}
 .bcf .step h3{margin:0}
-.bcf .story .grid2{grid-template-columns:.75fr 1.25fr}
-.bcf .story .ph{aspect-ratio:4/4.4;border-radius:6px}
+.bcf .story .grid2{grid-template-columns:.85fr 1.15fr}
+.bcf .hl{color:var(--or);font-weight:600}
+.bcf .squote{margin:0;padding:36px 34px;background:var(--noir);color:#fff;border-radius:var(--r);position:relative}
+.bcf .squote .qmark{display:block;font-family:var(--f-serif);font-size:96px;line-height:.6;color:var(--or);height:44px}
+.bcf .squote blockquote{margin:0;font-family:var(--f-serif);font-size:28px;line-height:1.3;color:#fff}
+.bcf .squote figcaption{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.2);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#D6D6D6}
 .bcf .story .h2{margin-bottom:18px}
 .bcf .story p{margin-bottom:14px}
 .bcf .quote{border-left:4px solid var(--or);background:#fff;padding:14px 18px;border-radius:0 12px 12px 0;font-style:italic;font-weight:500;color:var(--noir)}
 .bcf .sign{font-size:14px;color:var(--mut)}.bcf .sign strong{color:var(--noir)}
 .bcf .final{text-align:center}
 .bcf .final .sub{margin:12px 0 26px}
-@container bcf (max-width:700px){.story .grid2{grid-template-columns:1fr}.story .ph{max-width:320px}}
+@container bcf (max-width:700px){.story .grid2{grid-template-columns:1fr}.squote{order:2;padding:28px 22px}.squote blockquote{font-size:22px}}
 </style>"""
 
-STORY = """      <p>Une nuit, mon beau-père respirait très difficilement. Grâce à un oxymètre, j'ai constaté une saturation en oxygène anormalement basse et j'ai pu transmettre cette information au médecin régulateur, qui a immédiatement envoyé les pompiers avec de l'oxygène.</p>
-      <p class="quote">« Je suis convaincu que cette information a contribué à lui sauver la vie. »</p>"""
+STORY_NARR = """      <p>Une nuit, mon beau-père a eu beaucoup de mal à respirer. Avec un oxymètre, j'ai mesuré sa saturation en oxygène : elle était anormalement basse. J'ai transmis ce chiffre au médecin régulateur, qui a aussitôt envoyé les pompiers avec de l'oxygène.</p>
+      <p>Ce soir-là, une mesure prise en quelques secondes a donné aux secours une information concrète pour décider.</p>"""
 
-FOUNDER_IMG = """<div class="ph" data-label="Oxymètre de pouls">
-      <img src="IMG_OXYMETRE" alt="Oxymètre de pouls Spengler OxyStart" onerror="this.style.display='none'">
-    </div>"""
+STORY_QUOTE = """<figure class="squote">
+      <span class="qmark" aria-hidden="true">“</span>
+      <blockquote>Je suis convaincu que cette information a contribué à lui sauver la vie.</blockquote>
+      <figcaption>Témoignage d'un dirigeant de BioConnect</figcaption>
+    </figure>"""
 
 P1B = note("PAGE 1 – CAPTURE · BLOC B (en dessous du formulaire systeme.io)", [
     "À PERSONNALISER : recherchez « A_REMPLACER ».",
@@ -336,13 +342,12 @@ P1B = note("PAGE 1 – CAPTURE · BLOC B (en dessous du formulaire systeme.io)",
   </div></div>
 
   <div class="sec bg-cream story"><div class="wrap"><div class="grid2">
-    {FOUNDER_IMG}
+    {STORY_QUOTE}
     <div>
       <span class="kicker">Pourquoi ce guide</span>
       <h2 class="serif h2">Quelques chiffres peuvent <span class="accent">faire la différence</span></h2>
-{STORY}
-      <p style="margin-top:14px">Ce guide vous aide à utiliser l'oxymètre, le tensiomètre et le thermomètre, et à transmettre rapidement des données précises aux secours.</p>
-      <p class="sign">— Témoignage d'un dirigeant de BioConnect</p>
+{STORY_NARR}
+      <p class="hl">Ce guide vous donne les mêmes repères : utiliser l'oxymètre, le tensiomètre et le thermomètre, lire les résultats et transmettre les bons chiffres aux secours.</p>
     </div>
   </div></div></div>
 
@@ -433,7 +438,10 @@ P3_CSS = r"""<style>
 .bcf .perk h3{font-size:14px;font-weight:700;text-transform:uppercase;color:var(--noir);line-height:1.25;margin-bottom:4px}
 .bcf .perk p{font-size:13px;color:var(--mut);line-height:1.45}
 .bcf .story .grid2{grid-template-columns:.85fr 1.15fr}
-.bcf .story .ph{aspect-ratio:4/4.3;border-radius:6px}
+.bcf .squote{margin:0;padding:36px 34px;background:var(--noir);color:#fff;border-radius:var(--r);position:relative}
+.bcf .squote .qmark{display:block;font-family:var(--f-serif);font-size:96px;line-height:.6;color:var(--or);height:44px}
+.bcf .squote blockquote{margin:0;font-family:var(--f-serif);font-size:28px;line-height:1.3;color:#fff}
+.bcf .squote figcaption{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.2);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#D6D6D6}
 .bcf .story .h2{margin-bottom:20px}
 .bcf .story p{margin-bottom:14px}
 .bcf .quote{border-left:4px solid var(--or);background:var(--cream);padding:14px 18px;border-radius:0 12px 12px 0;font-style:italic;font-weight:500;color:var(--noir)}
@@ -486,7 +494,8 @@ P3_CSS = r"""<style>
   .s-hero .grid2,.story .grid2{grid-template-columns:1fr}
   .s-hero .lead{font-size:16.5px}
   .badge{width:104px;height:104px;font-size:11.5px}
-  .story .ph{max-width:340px}
+  .squote{order:2;padding:28px 22px}
+  .squote blockquote{font-size:22px}
   .perks .grid4{grid-template-columns:1fr 1fr;gap:18px}
   .kit .grid4{grid-template-columns:1fr 1fr;gap:12px}
   .kit .card{padding:14px}
@@ -547,14 +556,12 @@ P3 = note("PAGE 3 – VENTE (un seul bloc Code HTML)", [
   </div></div></div>
 
   <div class="sec story"><div class="wrap"><div class="grid2">
-    {FOUNDER_IMG}
+    {STORY_QUOTE}
     <div>
       <span class="kicker">Notre histoire</span>
       <h2 class="serif h2">Pourquoi avons-nous créé <span class="accent">cette trousse&nbsp;?</span></h2>
-{STORY}
-      <p style="margin-top:14px">Cette expérience nous a montré l'intérêt d'avoir à domicile un matériel simple et fiable pour donner des informations précises aux urgentistes.</p>
-      <p class="hl">C'est de là qu'est née l'idée de cette trousse, en partenariat avec Spengler, marque spécialisée dans le matériel de diagnostic médical.</p>
-      <p class="sign">— Témoignage d'un dirigeant de BioConnect</p>
+{STORY_NARR}
+      <p class="hl">C'est de cette expérience qu'est née la trousse : réunir, avec Spengler, marque spécialisée dans le matériel de diagnostic médical, les trois appareils utiles dans ces moments-là, le tensiomètre, l'oxymètre et le thermomètre.</p>
     </div>
   </div></div></div>
 
