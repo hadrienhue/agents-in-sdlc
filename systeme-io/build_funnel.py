@@ -278,9 +278,8 @@ P1B_CSS = r"""<style>
 STORY = """      <p>Une nuit, mon beau-père respirait très difficilement. Grâce à un oxymètre, j'ai constaté une saturation en oxygène anormalement basse et j'ai pu transmettre cette information au médecin régulateur, qui a immédiatement envoyé les pompiers avec de l'oxygène.</p>
       <p class="quote">« Je suis convaincu que cette information a contribué à lui sauver la vie. »</p>"""
 
-FOUNDER_IMG = """<div class="ph cover" data-label="Photo du fondateur">
-      <!-- A_REMPLACER : URL du portrait -->
-      <img src="IMG_FONDATEUR" alt="José Rodriguez, Directeur Général de BioConnect" onerror="this.style.display='none'">
+FOUNDER_IMG = """<div class="ph" data-label="Oxymètre de pouls">
+      <img src="IMG_OXYMETRE" alt="Oxymètre de pouls Spengler OxyStart" onerror="this.style.display='none'">
     </div>"""
 
 P1B = note("PAGE 1 – CAPTURE · BLOC B (en dessous du formulaire systeme.io)", [
@@ -343,7 +342,7 @@ P1B = note("PAGE 1 – CAPTURE · BLOC B (en dessous du formulaire systeme.io)",
       <h2 class="serif h2">Quelques chiffres peuvent <span class="accent">faire la différence</span></h2>
 {STORY}
       <p style="margin-top:14px">Ce guide vous aide à utiliser l'oxymètre, le tensiomètre et le thermomètre, et à transmettre rapidement des données précises aux secours.</p>
-      <p class="sign"><strong>José Rodriguez</strong> – Directeur Général, BioConnect</p>
+      <p class="sign">— Témoignage d'un dirigeant de BioConnect</p>
     </div>
   </div></div></div>
 
@@ -520,7 +519,7 @@ ICO = lambda d: f'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
 
 P3 = note("PAGE 3 – VENTE (un seul bloc Code HTML)", [
     "À PERSONNALISER : LIEN_COMMANDE (page de commande systeme.io), prix,",
-    "IMG_FONDATEUR / IMG_FAMILLE (URL des photos), e-mail et réseaux sociaux.",
+    "IMG_FAMILLE (URL de la photo), e-mail et réseaux sociaux.",
 ]) + DS + P3_CSS + f"""
 <div class="bcf">
 {header("Commander", "#offre")}
@@ -555,7 +554,7 @@ P3 = note("PAGE 3 – VENTE (un seul bloc Code HTML)", [
 {STORY}
       <p style="margin-top:14px">Cette expérience nous a montré l'intérêt d'avoir à domicile un matériel simple et fiable pour donner des informations précises aux urgentistes.</p>
       <p class="hl">C'est de là qu'est née l'idée de cette trousse, en partenariat avec Spengler, marque spécialisée dans le matériel de diagnostic médical.</p>
-      <p class="sign"><strong>José Rodriguez</strong> – Directeur Général, BioConnect</p>
+      <p class="sign">— Témoignage d'un dirigeant de BioConnect</p>
     </div>
   </div></div></div>
 

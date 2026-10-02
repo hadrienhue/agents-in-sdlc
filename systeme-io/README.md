@@ -26,7 +26,7 @@ Tunnel en 3 pages : **capture → merci → vente**. Chaque fichier `.html` se c
 | `CONTACT_EMAIL`, `EXPEDITEUR_EMAIL` | E-mail de contact, adresse d'expédition des e-mails |
 | `LIEN_FACEBOOK`, `LIEN_INSTAGRAM`, `LIEN_LINKEDIN` | Réseaux sociaux (supprimez la ligne si inutile) |
 | `LIEN_MENTIONS_LEGALES`, `LIEN_CONFIDENTIALITE`, `LIEN_CGV` | Pages légales |
-| `IMG_FONDATEUR`, `IMG_FAMILLE` | URL des 2 photos encore manquantes (médiathèque systeme.io → copier le lien) |
+| `IMG_FAMILLE` | URL de la photo de mise en situation (médiathèque systeme.io → copier le lien) |
 
 ## Design system (commun aux 4 blocs)
 
