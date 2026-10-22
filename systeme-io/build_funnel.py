@@ -135,6 +135,15 @@ def header(pill, href=None):
   <div class="subhdr"><span>Santé à domicile</span></div>
 """
 
+def header_nav():
+    return f"""  <div class="hdr"><div class="wrap">
+    {BRAND}
+    <nav class="hnav"><a href="#accueil">Accueil</a><a href="#trousse">La trousse</a><a href="#histoire">Notre histoire</a><a href="#questions">Vos questions</a><a href="#contact">Contact</a></nav>
+    <a class="pill" href="#offre">Commander</a>
+  </div></div>
+  <div class="subhdr"><span>Santé à domicile</span></div>
+"""
+
 FOOTER = f"""  <div class="foot"><div class="wrap">
     <div class="row">
       <div>{BRAND}<div class="ref">Guide pratique</div></div>
@@ -429,6 +438,25 @@ P2 = note("PAGE 2 – MERCI (un seul bloc Code HTML)", [
 
 # ================================================================== PAGE 3 : VENTE
 P3_CSS = r"""<style>
+.bcf .hdr .wrap{gap:32px}
+.bcf .hnav{display:flex;gap:18px;margin-left:auto;font-size:12px;white-space:nowrap;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.bcf .hnav a{color:#fff;text-decoration:none}
+.bcf .hnav a:hover{color:var(--or)}
+.bcf .hnums{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.bcf .hnum{width:88px;height:88px;border-radius:50%;background:#fff;box-shadow:0 8px 24px -12px rgba(0,0,0,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.bcf .hnum strong{color:var(--or);font-size:18px;line-height:1.1}
+.bcf .hnum span{font-size:10.5px;font-weight:600;color:var(--noir);line-height:1.2;padding:0 6px}
+.bcf .say{margin:16px 20px 20px;background:var(--noir);color:#fff;border-radius:12px;padding:14px 16px;font-size:13.5px;font-style:italic;flex:1}
+.bcf .say small{display:block;font-style:normal;letter-spacing:.14em;text-transform:uppercase;font-size:10px;opacity:.65;margin-bottom:6px}
+.bcf .say em{color:var(--or-l);font-weight:600}
+.bcf .guide .ph{aspect-ratio:4/4.6;background:transparent}
+.bcf .guide .pic{background-color:transparent}
+.bcf .pdf{float:right;width:112px;height:112px;border-radius:50%;background:var(--or);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:700;font-size:12.5px;line-height:1.2;margin:0 0 14px 16px}
+.bcf .pdf small{font-weight:400;font-size:11px}
+.bcf .gsub{margin:14px 0 18px}
+.bcf .psteps{margin-top:36px}
+.bcf .pstep{display:flex;gap:14px}
+.bcf .pstep .n{font-family:var(--f-serif);font-size:30px;color:var(--or);line-height:1}
 .bcf .s-hero{background:linear-gradient(120deg,#fff 0%,#fff 45%,var(--cream) 100%);padding:60px 0 52px}
 .bcf .s-hero .grid2{grid-template-columns:1.05fr 1fr;gap:40px}
 .bcf .s-hero .h1{margin-bottom:20px}
@@ -489,11 +517,17 @@ P3_CSS = r"""<style>
 .bcf .final .h2{margin-bottom:18px}
 .bcf .final p{margin-bottom:26px}
 .bcf .final .ph{aspect-ratio:4/3.4}
+@container bcf (max-width:1180px){.hnav{display:none}}
 @container bcf (max-width:700px){
   .s-hero{padding:34px 0}
+  .hnum{width:72px;height:72px}
+  .hnum strong{font-size:15px}
+  .hnum span{font-size:9.5px}
+  .pdf{width:88px;height:88px;font-size:10.5px}
+  .guide .ph{max-width:300px;margin:0 auto;width:100%}
   .s-hero .grid2{grid-template-columns:1fr}
   .s-hero .lead{font-size:16.5px}
-  .badge{width:104px;height:104px;font-size:11.5px}
+  .badge{width:112px;height:112px;font-size:10px;padding:12px}
   .perks .grid4{grid-template-columns:1fr 1fr;gap:18px}
   .kit .grid4{grid-template-columns:1fr 1fr;gap:12px}
   .kit .card{padding:14px}
@@ -529,16 +563,22 @@ P3 = note("PAGE 3 – VENTE (un seul bloc Code HTML)", [
     "IMG_FAMILLE (URL de la photo), e-mail et réseaux sociaux.",
 ]) + DS + P3_CSS + f"""
 <div class="bcf">
-{header("Commander", "#offre")}
-  <div class="s-hero"><div class="wrap"><div class="grid2">
+{header_nav()}
+  <div class="s-hero" id="accueil"><div class="wrap"><div class="grid2">
     <div>
       <span class="kicker">Trousse de secours Spengler</span>
       <h1 class="serif h1">Et si une urgence survenait <span class="accent">chez vous&nbsp;?</span></h1>
       <p class="lead">Mesurez les signes vitaux essentiels et transmettez-les aux services de secours de façon claire et précise.</p>
-      <a class="btn" href="#offre">Découvrir l'offre {ARROW}</a>
+      <a class="btn" href="#offre">Découvrir la trousse {ARROW}</a>
+      <div class="hnums" aria-label="Numéros d'urgence">
+        <div class="hnum"><strong>15</strong><span>SAMU</span></div>
+        <div class="hnum"><strong>18</strong><span>Pompiers</span></div>
+        <div class="hnum"><strong>112</strong><span>Urgences UE</span></div>
+        <div class="hnum"><strong>116 117</strong><span>Médecin de garde</span></div>
+      </div>
     </div>
     <div style="position:relative">
-      <div class="badge">3 appareils de mesure réunis dans une trousse</div>
+      <div class="badge">Une trousse complète pour plus de sérénité au quotidien</div>
       <div class="ph" data-label="Photo de la trousse complète">
         <!-- A_REMPLACER : URL de la photo de la trousse -->
         <img src="IMG_KIT_COMPLET" alt="Trousse de secours Spengler : tensiomètre, oxymètre et thermomètre" onerror="this.style.display='none'">
@@ -553,16 +593,16 @@ P3 = note("PAGE 3 – VENTE (un seul bloc Code HTML)", [
     <div class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M15.5 14.2c3.2-.4 6 1.5 6 4.8"/></svg><div><h3>Toute la famille</h3><p>Adultes, enfants et seniors</p></div></div>
   </div></div></div>
 
-  <div class="sec story"><div class="wrap"><div class="story-c">
+  <div class="sec story" id="histoire"><div class="wrap"><div class="story-c">
       <span class="kicker">Notre histoire</span>
       <h2 class="serif h2">Pourquoi avons-nous créé <span class="accent">cette trousse&nbsp;?</span></h2>
 {STORY_NARR}
       <p class="hl">C'est de cette expérience qu'est née la trousse : réunir, avec Spengler, marque spécialisée dans le matériel de diagnostic médical, les trois appareils utiles dans ces moments-là, le tensiomètre, l'oxymètre et le thermomètre.</p>
   </div></div></div>
 
-  <div class="sec bg-gris kit"><div class="wrap">
+  <div class="sec bg-gris kit" id="trousse"><div class="wrap">
     <div class="center">
-      <span class="kicker">Contenu de la trousse</span>
+      <span class="kicker">Une trousse complète pour mesurer les signes vitaux essentiels</span>
       <h2 class="serif h2">Les appareils pour mesurer <span class="accent">les signes vitaux essentiels</span></h2>
     </div>
     <div class="grid4">
@@ -575,19 +615,57 @@ P3 = note("PAGE 3 – VENTE (un seul bloc Code HTML)", [
 
   <div class="sec ref"><div class="wrap">
     <div class="center">
-      <span class="kicker">Guide inclus</span>
-      <h2 class="serif h2">Des repères pour <span class="accent">interpréter chaque mesure</span></h2>
-      <p class="sub">Le guide fourni avec la trousse indique, pour chaque appareil, les valeurs de référence et les informations à transmettre au 15.</p>
+      <span class="kicker">Extrait du guide inclus</span>
+      <h2 class="serif h2">Savoir lire les chiffres… <span class="accent">et quoi dire au 15</span></h2>
+      <p class="sub">Pour chaque mesure, le guide donne des repères simples et la phrase à transmettre au médecin régulateur.</p>
     </div>
     <div class="grid3">
       <div class="rcard"><div class="hd"><h3>Saturation (SpO₂)</h3><span class="prio">PRIORITÉ 1</span></div>
-        <div class="lv ok"><span>Normal</span><b>95 – 100 %</b></div><div class="lv wa"><span>Attention</span><b>90 – 94 %</b></div><div class="lv ba"><span>Urgence → 15</span><b>&lt; 90 %</b></div></div>
+        <div class="lv ok"><span>Normal</span><b>95 – 100 %</b></div><div class="lv wa"><span>Attention</span><b>90 – 94 %</b></div><div class="lv ba"><span>Urgence → 15</span><b>&lt; 90 %</b></div>
+        <div class="say"><small>Ce que vous dites au régulateur</small>« L'oxymètre indique une saturation en oxygène de <em>[chiffre] %</em>. La fréquence cardiaque affichée est de <em>[chiffre] battements par minute</em>. »</div></div>
       <div class="rcard"><div class="hd"><h3>Tension artérielle</h3><span class="prio p2">PRIORITÉ 2</span></div>
-        <div class="lv ok"><span>Normal</span><b>90–140 / 60–90</b></div><div class="lv wa"><span>Élevée</span><b>&gt; 140 / 90</b></div><div class="lv ba"><span>Urgence → 15</span><b>&gt; 180/110 ou &lt; 80/50</b></div></div>
+        <div class="lv ok"><span>Normal</span><b>90–140 / 60–90</b></div><div class="lv wa"><span>Élevée</span><b>&gt; 140 / 90</b></div><div class="lv ba"><span>Urgence → 15</span><b>&gt; 180/110 ou &lt; 80/50</b></div>
+        <div class="say"><small>Ce que vous dites au régulateur</small>« La tension prise avec le tensiomètre est de <em>[SYS] sur [DIA] mmHg</em>. Le pouls affiché est de <em>[chiffre] par minute</em>. »</div></div>
       <div class="rcard"><div class="hd"><h3>Température</h3><span class="prio p3">PRIORITÉ 3</span></div>
-        <div class="lv ok"><span>Normal</span><b>36,1 – 37,2 °C</b></div><div class="lv wa"><span>Fièvre</span><b>37,5 – 39,9 °C</b></div><div class="lv ba"><span>Urgence → 15</span><b>≥ 40 °C ou &lt; 35 °C</b></div></div>
+        <div class="lv ok"><span>Normal</span><b>36,1 – 37,2 °C</b></div><div class="lv wa"><span>Fièvre</span><b>37,5 – 39,9 °C</b></div><div class="lv ba"><span>Urgence → 15</span><b>≥ 40 °C ou &lt; 35 °C</b></div>
+        <div class="say"><small>Ce que vous dites au régulateur</small>« La température prise <em>[frontalement]</em> est de <em>[chiffre] °C</em>. La fièvre dure depuis <em>[durée]</em>. »</div></div>
     </div>
     <p class="note">Repères indicatifs issus du guide. Ils ne remplacent pas un avis médical : en cas de doute, appelez le 15.</p>
+  </div></div>
+
+  <div class="sec bg-cream guide"><div class="wrap"><div class="grid2">
+    <div class="ph" data-label="Couverture du guide">
+      <img src="IMG_GUIDE" alt="Guide des mesures médicales d'urgence – BioConnect × Spengler" onerror="this.style.display='none'">
+    </div>
+    <div>
+      <div class="pdf"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>GUIDE INCLUS<small>au format PDF</small></div>
+      <span class="kicker">Un guide pratique inclus</span>
+      <h2 class="serif h2">Pour vous accompagner <span class="accent">pas à pas</span></h2>
+      <p class="gsub">Un guide clair et illustré accompagne votre trousse :</p>
+      <ul class="checks">
+        <li>Comment utiliser chaque appareil (écrans annotés)</li>
+        <li>Comprendre les résultats : normal, attention, urgence</li>
+        <li>Les bons réflexes en cas d'urgence</li>
+        <li>Le protocole d'appel aux secours en 6 étapes</li>
+        <li>Les numéros à contacter : 15, 18, 112, 116 117</li>
+      </ul>
+    </div>
+  </div></div></div>
+
+  <div class="sec proto"><div class="wrap">
+    <div class="center">
+      <span class="kicker">Protocole d'appel aux secours</span>
+      <h2 class="serif h2">Les 6 étapes d'un <span class="accent">appel efficace</span></h2>
+      <p class="sub">Donnez ces informations dans cet ordre pour aider le régulateur à prendre la bonne décision.</p>
+    </div>
+    <div class="grid3 psteps">
+      <div class="card pstep"><span class="n">01</span><div><h3>Votre identité</h3><p>Votre nom et votre numéro de téléphone.</p></div></div>
+      <div class="card pstep"><span class="n">02</span><div><h3>L'adresse exacte</h3><p>Numéro, rue, code postal, étage et code d'entrée.</p></div></div>
+      <div class="card pstep"><span class="n">03</span><div><h3>Le problème</h3><p>La situation en une phrase : douleur, chute, difficulté à respirer…</p></div></div>
+      <div class="card pstep"><span class="n">04</span><div><h3>Les mesures</h3><p>La SpO₂, la tension et la température mesurées avec la trousse.</p></div></div>
+      <div class="card pstep"><span class="n">05</span><div><h3>Les antécédents</h3><p>Maladies connues, traitements en cours et allergies.</p></div></div>
+      <div class="card pstep"><span class="n">06</span><div><h3>Ne raccrochez pas</h3><p>Restez en ligne : le régulateur vous guide jusqu'à l'arrivée des secours.</p></div></div>
+    </div>
   </div></div>
 
   <div class="sec offer" id="offre"><div class="wrap"><div class="grid2">
@@ -629,7 +707,7 @@ P3 = note("PAGE 3 – VENTE (un seul bloc Code HTML)", [
     </div>
   </div></div>
 
-  <div class="sec faq"><div class="wrap">
+  <div class="sec faq" id="questions"><div class="wrap">
     <div class="center"><span class="kicker">Vos questions</span><h2 class="serif h2">Questions fréquentes</h2></div>
     <details><summary>Faut-il des connaissances médicales pour utiliser la trousse&nbsp;?</summary><p>Non. Les appareils sont conçus pour un usage à domicile, et le guide explique chaque écran et comment lire les résultats (normal / attention / urgence).</p></details>
     <details><summary>La trousse remplace-t-elle un médecin ou un appel aux secours&nbsp;?</summary><p>Non. La trousse et le guide ne remplacent ni un avis médical ni l'intervention des professionnels de santé. Ils aident à transmettre des informations précises. En cas d'urgence vitale ou de doute sérieux, appelez le 15 ou le 112.</p></details>
@@ -642,9 +720,9 @@ P3 = note("PAGE 3 – VENTE (un seul bloc Code HTML)", [
 
   <div class="sec bg-cream final"><div class="wrap"><div class="grid2">
     <div>
-      <span class="kicker">Pour les familles</span>
-      <h2 class="serif h2">Être mieux préparé, <span class="accent">à la maison comme en déplacement</span></h2>
-      <p>La trousse vous permet de réagir plus sereinement et de disposer des informations essentielles à transmettre aux secours.</p>
+      <span class="kicker">Être prêt</span>
+      <h2 class="serif h2">Pour toutes les familles qui souhaitent être <span class="accent">mieux préparées</span></h2>
+      <p>À la maison comme en déplacement, la trousse vous permet de réagir plus sereinement et d'avoir les informations essentielles à transmettre aux secours.</p>
       <a class="btn" href="#offre">Commander la trousse {ARROW}</a>
     </div>
     <div class="ph cover" data-label="Photo famille / mise en situation">
@@ -652,7 +730,7 @@ P3 = note("PAGE 3 – VENTE (un seul bloc Code HTML)", [
       <img src="IMG_FAMILLE" alt="Famille à la maison" onerror="this.style.display='none'">
     </div>
   </div></div></div>
-{FOOTER}</div>
+{FOOTER.replace('<div class="foot">', '<div class="foot" id="contact">', 1)}</div>
 """ + STICKY
 
 
